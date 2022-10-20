@@ -9,19 +9,20 @@ const Header = () => {
           
         </div>
         <div className = "header-items items">
-          <div className = "item">
+          <a className = "item">
             Главная 
-          </div>
-          <div className = "item">
+          </a>
+          <a className = "item">
             Контакты 
-          </div>
-          <div className = "item">
+          </a>
+          <a className = "item">
             Каталог 
-          </div>
-          <div className = "item">
+          </a>
+          <a className = "item">
             О нас 
-          </div>
+          </a>
         </div>
+        
     </div>
   );
 };
