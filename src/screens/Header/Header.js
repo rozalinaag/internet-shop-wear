@@ -5,15 +5,17 @@ const Header = () => {
   return (
     <div className="header">
       <div className='header-main'>
+        
         <div className="header-gap"></div>
         <div className="header-items items">
-          <a className="item">Главная</a>
-          <a className="item">Контакты</a>
-          <a className="item">Каталог</a>
-          <a className="item">О нас</a>
+          <a href='/' className="item main">Главная</a>
+          <a className="item katalog">Каталог</a>
+          <a className="item contacts">Контакты</a>
+          <a className="item about-us">О нас</a>
         </div>
+        
       </div>
-      <a className='downOutlined'>
+      <a href="#top" id="menu" className='downOutlined'>
         <DownOutlined style={{ color: 'white', fontSize: '40px', fontWeight: '800' }}/>
       </a>
     </div>

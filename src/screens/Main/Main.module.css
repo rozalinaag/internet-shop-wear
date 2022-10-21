@@ -1,0 +1,14 @@
+.main{
+  background-color: rgb(246, 235, 235);
+  height: 100vh;
+}
+
+.catalog{
+
+}
+
+.items{
+  display: flex;
+  gap: 10%;
+  justify-content: center;
+}
