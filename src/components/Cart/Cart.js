@@ -3,7 +3,8 @@ import Icon, { DownOutlined } from '@ant-design/icons';
 import gatsbyIconImage from "../../assets/img/catalog1.PNG";
 import React, {useState} from 'react';
 
-const Main = () => {
+
+const Cart = (props) => {
 
   const [data, setData] = useState({
     id: "",
@@ -16,9 +17,10 @@ const Main = () => {
   const [load, SetLoad] = useState(false);
 
   const Componeny = () => {
-    let id = 1;
+
+    
     if (load==false){
-      fetch('http://localhost:3002/carts/' + id)
+      fetch(process.env.REACT_APP_HOST + '/carts/' + props.id)
       .then(response => response.json())
       .then(
         (data) => {
@@ -39,6 +41,7 @@ const Main = () => {
 
   Componeny();
   console.log(data);
+  console.log(process.env.REACT_APP_HOST)
 
   return (
     <div>
@@ -61,4 +64,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Cart;

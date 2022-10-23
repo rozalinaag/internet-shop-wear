@@ -1,14 +1,58 @@
+.mainHeader{
+  width: 100%;
+  position: absolute;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.headerArrow{
+  font-size: 20px;
+  color:rgb(26, 26, 26)
+}
+.headerName{
+  font-size: 30px;
+  font-weight: 400;
+}
+
+
+.carouselItems{
+  
+}
+
+.carouselItem{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.carousel1{
+  background-color: aqua;
+}
+.carousel2{
+  background-color: rgb(89, 255, 0);
+}
+.carousel3{
+  background-color: rgb(53, 51, 172);
+}
+
 .main{
   background-color: rgb(246, 235, 235);
   height: 100vh;
 }
 
 .catalog{
-
+  display: flex;
+  justify-content: center;
 }
 
 .items{
   display: flex;
-  gap: 10%;
+  margin-top: 5%;
+  position: absolute;
+  gap: 5%;
+  align-items: center;
   justify-content: center;
 }

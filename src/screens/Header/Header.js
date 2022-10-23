@@ -15,9 +15,10 @@ const Header = () => {
         </div>
         
       </div>
+      {/* 
       <a href="#top" id="menu" className='downOutlined'>
-        <DownOutlined style={{ color: 'white', fontSize: '40px', fontWeight: '800' }}/>
-      </a>
+        <DownOutlined style={{ color: 'white', fontSize: '30px', fontWeight: '800' }}/>
+      </a>*/}
     </div>
   );
 };
