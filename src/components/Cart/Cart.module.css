@@ -10,7 +10,6 @@
   transform: scale(1.17); /* Увеличиваем масштаб */
  }
 
-
  .description{
   gap: 10px;
   display: flex;
@@ -24,6 +23,7 @@
   justify-content: center;
   align-items: center;
   font: 14px/24px Liberation,Arial,sans-serif;
+  letter-spacing: .4px;
  }
  .name{
   width: 400px;
@@ -31,15 +31,36 @@
   overflow: hidden; /* Обрезаем всё за пределами блока */
   text-overflow: ellipsis; /* Добавляем многоточие */
   text-align: center;
+  cursor: pointer;
+ }
+
+.a{
+  text-decoration: none;
+  color: black;
+}
+ .name:hover{
+  color: rgb(207, 39, 39);
  }
 
  .topName{
-  color: red;
+  color: rgb(220, 44, 44);
   letter-spacing: 1.2px;
  }
 
 .price{
-  font-size: 14px;
+  font-size: 15px;
   line-height: 26px;
   letter-spacing: 2px;
+}
+
+.button{
+  border: none; 
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.button:hover{
+  font-size: larger;
+  color: rgb(207, 39, 39);
+  cursor: pointer;
 }

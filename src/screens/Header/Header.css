@@ -4,6 +4,7 @@
   height: 100vh;
   background-size: cover;
   width: 100%;
+  position: relative;
 
   box-shadow: 0 0 3px rgba(76, 76, 76, 0.5);
   display: flex;

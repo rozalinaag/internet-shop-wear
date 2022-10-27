@@ -46,15 +46,15 @@ const Cart = (props) => {
       <div className={styles.cart}>
         <div className={styles.cartHeader}>
           <div className={styles.picture}>
-            <img width = "500" height="600" alt="picture" src={data.img}></img>
+            <img width = "400" height="500" alt="picture" src={data.img}></img>
           </div>
         </div>
         <div className={styles.cartFooter}>
           <div className={styles.topName}>Бестселлер</div>
-          <div className={styles.name} >{data.name}</div>
+          <a className={styles.name + " " + styles.a } >{data.name}</a>
           <div className={styles.price}>{data.price}₽</div>
           <div className={styles.description}>
-            Подробнее
+            <button className={styles.button}>Подробнее</button>
             <ArrowRightOutlined />
             </div>
         </div>
