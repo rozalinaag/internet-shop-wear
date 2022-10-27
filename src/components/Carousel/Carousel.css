@@ -1,7 +1,6 @@
 .main-container{
-  height: 150px;
-  width: 450px;
-
+  height: auto;
+  width: 100%;
   display: flex;
   align-items: center;
 }
@@ -19,10 +18,14 @@
 
  transition: translate;
  transition-property: transform;
- transition-duration: 300ms;
+ /*transition-duration: 300ms;*/
  transition-timing-function: ease-in-out;
 }
 
 .arrow{
   cursor: pointer;
+  background-color: rgba(213, 211, 211, 0.5);
+  height: 100px;
+  color: rgb(57, 57, 57);
+  width: 20px;
 }

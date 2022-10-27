@@ -1,7 +1,8 @@
 import styles from './Main.module.css';
-import Icon, { ArrowRightOutlined } from '@ant-design/icons';
+import { ArrowRightOutlined } from '@ant-design/icons';
 import Cart from '../../components/Cart/Cart';
-import Carousel from '../../components/Carousel/Carousel';
+//import Carousel from '../../components/Carousel/Carousel';
+import CarouselCompaund from '../../components/Carousel/Carousel';
 
 const Main = () => {
   return (
@@ -13,42 +14,57 @@ const Main = () => {
         </a>
       </div>
 
-      <Carousel>
-          <div className={styles.item}>
-            <Cart id={1} />
-          </div>
-          <div className={styles.item}>
-            <Cart id={2} />
-          </div>
-          <div className={styles.item}>
-            <Cart id={4} />
-          </div>
-          <div className={styles.carouselItem +" "+ styles.carousel1}>
-          Item1
-          </div>
-          <div className={styles.carouselItem +" "+ styles.carousel2}>
-          Item2
-          </div>
-          <div className={styles.carouselItem +" "+ styles.carousel3}>
-          Item1
-          </div>
-      </Carousel>
-
-      <div className={styles.catalog}>
-        <div className={styles.items}>
-          <div className={styles.item}>
-            <Cart id={1} />
-          </div>
-          <div className={styles.item}>
-            <Cart id={2} />
-          </div>
-          <div className={styles.item}>
-            <Cart id={4} />
-          </div>
-        </div>
+      <div className={styles.carousel}>
+        <CarouselCompaund infinite>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>
+              <div className={styles.items}>
+                <div className={styles.item}>
+                  <Cart id={1} />
+                </div>
+                <div className={styles.item}>
+                  <Cart id={2} />
+                </div>
+                <div className={styles.item}>
+                  <Cart id={3} />
+                </div>
+              </div>
+            </div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>
+                <div className={styles.items}>
+                  <div className={styles.item}>
+                    <Cart id={4} />
+                  </div>
+                  <div className={styles.item}>
+                    <Cart id={5} />
+                  </div>
+                  <div className={styles.item}>
+                    <Cart id={6} />
+                  </div>
+                </div>
+              </div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>
+                <div className={styles.items}>
+                  <div className={styles.item}>
+                    <Cart id={7} />
+                  </div>
+                  <div className={styles.item}>
+                    <Cart id={8} />
+                  </div>
+                  <div className={styles.item}>
+                    <Cart id={9} />
+                  </div>
+                </div>
+              </div>
+          </CarouselCompaund.Page>
+        </CarouselCompaund>
       </div>
       <p>
-        <a name="top"></a>
+        <a name="top"></a>     
       </p>
     </div>
   );

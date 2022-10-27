@@ -1,0 +1,45 @@
+ .picture {
+  display: inline-block; /* Строчно-блочный элемент */
+  overflow: hidden; /* Скрываем всё за контуром */
+ }
+ .picture img {
+  transition: 1s; /* Время эффекта */
+  display: block; /* Убираем небольшой отступ снизу */
+ }
+ .picture img:hover {
+  transform: scale(1.17); /* Увеличиваем масштаб */
+ }
+
+
+ .description{
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .cartFooter{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font: 14px/24px Liberation,Arial,sans-serif;
+ }
+ .name{
+  width: 400px;
+  white-space: nowrap; /* Текст не переносится */
+  overflow: hidden; /* Обрезаем всё за пределами блока */
+  text-overflow: ellipsis; /* Добавляем многоточие */
+  text-align: center;
+ }
+
+ .topName{
+  color: red;
+  letter-spacing: 1.2px;
+ }
+
+.price{
+  font-size: 14px;
+  line-height: 26px;
+  letter-spacing: 2px;
+}

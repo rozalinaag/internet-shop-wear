@@ -1,8 +1,6 @@
 import styles from './Cart.module.css';
-import Icon, { DownOutlined } from '@ant-design/icons';
-import gatsbyIconImage from "../../assets/img/catalog1.PNG";
 import React, {useState} from 'react';
-
+import { ArrowRightOutlined } from '@ant-design/icons';
 
 const Cart = (props) => {
 
@@ -52,11 +50,12 @@ const Cart = (props) => {
           </div>
         </div>
         <div className={styles.cartFooter}>
+          <div className={styles.topName}>Бестселлер</div>
           <div className={styles.name} >{data.name}</div>
-          <div className={styles.price}>{data.price}</div>
+          <div className={styles.price}>{data.price}₽</div>
           <div className={styles.description}>
             Подробнее
-            <DownOutlined></DownOutlined>
+            <ArrowRightOutlined />
             </div>
         </div>
       </div>
