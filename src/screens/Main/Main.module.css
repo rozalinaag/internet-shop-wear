@@ -1,6 +1,6 @@
 .main{
   background-color: rgb(246, 235, 235);
-  height: 200vh;
+  height: 100vh;
   width: 100%;
   padding-top: 30px;
   position: relative;
@@ -69,89 +69,8 @@
   color: rgb(207, 39, 39);
 }
 
-.benefits{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-}
-.benefitsBody{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 100px;
-  gap: 50px;
-}
-.benefitsPicture{
-  background-position:center center;
-  background-size:cover;
-  width:100%;
-  height:500px;
-  background-image: url("../../assets/img/body2.jpg");
-}
-
-.benefitsItemPicture{
-  background-position:center center;
-  background-size:cover;
-  width:50px;
-  height:50px;
-}
-.benefitsItemPicture:hover{
-  width:60px;
-  height:60px;
-}
-.benefitsItemPictureReturn{
-  background-image: url("../../assets/img/return.png");
-}
-.benefitsItemPictureMaterial{
-  background-image: url("../../assets/img/garantee.png");
-}
-.benefitsItemPictureIcon{
-  background-image: url("../../assets/img/icon.png");
-}
-.benefitsTitle{
-  font-size: 30px;
-  letter-spacing: 5px;
-}
-.benefitsItems{
-  display: flex;
-  margin-top: 30px;
-  justify-content: center;
-  align-items: center;
-  gap: 40%;
-}
-
-.benefitsItem{
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  justify-content: center;
-  align-items: center;
-  white-space: nowrap; 
-  font: 14px/24px Liberation,Arial,sans-serif;
-  letter-spacing: .4px;
-  color: rgb(87, 87, 87);
-}
-
-.benefitsItem:hover{
-  font-size: 14px;
-  cursor: pointer;
-  color: rgb(0, 0, 0);
-  font-weight: 500;
-}
-.benefitsItemTitle{
-  text-align: center;
-}
-
 @media (max-width: 1000px) {
-  .benefitsItems{
-    gap:10%;
-  }
-  .benefitsItem{
-    white-space: normal; 
-  }
+  
 }
 
 /* Large desktops and laptops */
@@ -176,5 +95,7 @@
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
-
+  .mainHeader2{
+    display: none;
+  }
 }

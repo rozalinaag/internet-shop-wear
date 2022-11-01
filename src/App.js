@@ -1,8 +1,8 @@
 import './App.css';
 import Header from './screens/Header/Header';
-import 'antd/dist/antd.css';
 import Main from './screens/Main/Main';
-
+import Footer from './screens/Footer/Footer';
+import Benefits from './screens/Benefits/Benefits';
 
 function App() {
 
@@ -10,6 +10,8 @@ function App() {
     <div>
       <Header/>
       <Main/>
+      <Benefits/>
+      <Footer/>
     </div>
   );
 }

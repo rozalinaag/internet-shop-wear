@@ -1,0 +1,53 @@
+.footer{
+  background-color: rgb(68, 41, 41);
+  height: 30vh;
+  color:rgb(232, 215, 215);
+  position: relative;
+}
+
+.footerMain{
+  display: flex;
+  height: 100%;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footerLocation{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.socialNetwork{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.items{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.socialIcons{
+  display: flex;
+  gap: 10px;
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+  .footerMain{
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .footerLocation{
+    align-items: center;
+  }
+  .footer{
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
