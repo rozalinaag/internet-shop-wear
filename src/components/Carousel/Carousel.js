@@ -9,10 +9,11 @@ const TRANSITION_DURATION = 300
 
 const Carousel = ({ children, infinite }) => {
   const [offset, setOffset] = useState(0);
-  const [width, setWidth] = useState(900);
+  const [width, setWidth] = useState(500);
   const [pages, setPages] = useState([]);
   const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
   const [transitionDuration, setTransitionDuration] = useState(TRANSITION_DURATION)
+  const [intervalCarousel, setIntervalCarousel] = useState(true);
 
   const windowElRef = useRef()
 
@@ -31,8 +32,7 @@ const Carousel = ({ children, infinite }) => {
 
   useEffect(() => {
     const resizeHandler = () => {
-      const windowElWidth = windowElRef.current.offsetWidth
-      console.log('resized', windowElWidth)
+      const windowElWidth = windowElRef.current.offsetWidth;
       setWidth(windowElWidth)
       setOffset( -(clonesCount.head) * width)
     }
@@ -86,26 +86,22 @@ const Carousel = ({ children, infinite }) => {
       const newOffset = currentOffset - width;
 
       const maxOffset = -( width * (pages.length - 1))
-
-      console.log(newOffset, maxOffset)
       return Math.max(newOffset, maxOffset);
     })
   };
 
   /*
-  useEffect(() => {
-    setPages(
-      Children.map(children, (child) => {
-        return cloneElement(child, {
-          style: {
-            height: '100%',
-            minWidth: `${PAGE_WIDTH}px`,
-            maxWidth: `${PAGE_WIDTH}px`,
-          },
-        });
-      })
-    );
-  }, []); */
+  function IntervalLeftArrow(){
+    console.log("j")
+    setInterval(handleRightArrowClick, 5000);
+  }
+
+  if (intervalCarousel){
+    setIntervalCarousel(false);
+    console.log("he");
+    IntervalLeftArrow();
+  }*/
+  
 
   return (
     <CarouselContext.Provider value={{ width }}>

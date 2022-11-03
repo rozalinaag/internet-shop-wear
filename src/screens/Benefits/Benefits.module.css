@@ -125,6 +125,7 @@
   .benefitsItems{
     flex-direction: column;
     margin-top: 0px;
+    height: 350px;
   }
   .benefits{
     margin-bottom: 10px;
@@ -135,5 +136,8 @@
   }
   .benefitsItemPicture:hover {
     transform: scale(1.1); /* Увеличиваем масштаб */
+  }
+  .benefitsItem{
+    gap: 10px;
   }
 }

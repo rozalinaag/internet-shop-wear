@@ -4,11 +4,14 @@
   width: 100%;
   padding-top: 30px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .mainHeader{
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,44 +61,119 @@
 
 .mainHeader:hover{
   cursor: pointer;
-  color: rgb(207, 39, 39);
   
 }
 .headerName:hover{
   font-weight: 500;
 }
 
-.headerArrow:hover{
-  color: rgb(207, 39, 39);
+.carouselForTablet{
+  display: none;
 }
 
+.carouselForLaptop{
+  display: none;
+}
+.carouselForMobile{
+  display: none;
+}
 @media (max-width: 1000px) {
-  
+  .headerName{
+    font-size: 20px;
+  }
 }
 
 /* Large desktops and laptops */
-@media (min-width: 1200px) {
-
+@media (min-width: 1100px) and (max-width: 1800px)  {
+  .carousel{
+    display: none;
+  }
+  .carouselForLaptop{
+    display: block;
+  }
+  .carouselForTablet{
+    display: none;
+  }
+  .carouselForMobile{
+    display: none;
+  }
 }
 
 /* Portrait tablets and medium desktops */
-@media (min-width: 992px) and (max-width: 1199px) {
-
+@media (min-width: 992px) and (max-width: 1099px) {
+  .carousel{
+    display: none;
+  }
+  .carouselForLaptop{
+    display: none;
+  }
+  .carouselForTablet{
+    display: block;
+  }
+  .carouselForMobile{
+    display: none;
+  }
 }
 
 /* Portrait tablets and small desktops */
 @media (min-width: 768px) and (max-width: 991px) {
-
+  .carousel{
+    display: none;
+  }
+  .carouselForLaptop{
+    display: none;
+  }
+  .carouselForTablet{
+    display: block;
+  }
+  .carouselForMobile{
+    display: none;
+  }
 }
 
 /* Landscape phones and portrait tablets */
 @media (max-width: 767px) {
+  .carousel{
+    display: none;
+  }
+  .carouselForLaptop{
+    display: none;
+  }
+  .carouselForTablet{
+    display: none;
+  }
+  .carouselForMobile{
+    display: block;
+  }
+  .mainHeader{
+    margin-bottom: 0px;
+  }
+}
 
+@media (max-height: 850px){
+  .mainHeader2{
+    display: none;
+  }
+  .headerName{
+    font-size: 20px;
+  }
 }
 
 /* Landscape phones and smaller */
 @media (max-width: 480px) {
   .mainHeader2{
     display: none;
+  }
+  .carousel{
+    display: none;
+  }
+  .carouselForLaptop{
+    display: none;
+  }
+  .carouselForTablet{
+    display: none;
+  }
+  .carouselForMobile{
+    display: block;
   }
 }
