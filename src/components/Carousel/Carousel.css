@@ -3,7 +3,8 @@
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:space-between;
+  position: relative;
 }
 
 .window{
@@ -25,9 +26,22 @@
 
 .arrow{
   cursor: pointer;
+  position: absolute;
   background-color: rgba(213, 211, 211, 0.5);
   height: 100px;
   color: rgb(57, 57, 57);
   width: 20px;
-  margin-bottom: 100px;
+ 
+  z-index: 2;
+}
+
+.arrow1{
+  cursor: pointer;
+  position: absolute;
+  right: 0px;
+  background-color: rgba(213, 211, 211, 0.5);
+  height: 100px;
+  color: rgb(57, 57, 57);
+  width: 20px;
+  
 }

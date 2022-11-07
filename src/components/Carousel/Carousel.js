@@ -13,7 +13,6 @@ const Carousel = ({ children, infinite }) => {
   const [pages, setPages] = useState([]);
   const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
   const [transitionDuration, setTransitionDuration] = useState(TRANSITION_DURATION)
-  const [intervalCarousel, setIntervalCarousel] = useState(true);
 
   const windowElRef = useRef()
 
@@ -55,14 +54,14 @@ const Carousel = ({ children, infinite }) => {
   useEffect(() => {
     if (!infinite) return ;
 
-    if (offset == 0){
+    if (offset === 0){
       setTimeout(() => {
         setTransitionDuration(0);
         setOffset( - ( width * (pages.length - 1 - clonesCount.tail)))
       }, TRANSITION_DURATION)
       return;
     }
-    if (offset == -(width *(pages.length - 1))){
+    if (offset === -(width *(pages.length - 1))){
       setTimeout(() => {
         setTransitionDuration(0);
         setOffset( - (clonesCount.head * width))
@@ -118,7 +117,7 @@ const Carousel = ({ children, infinite }) => {
             {pages}
           </div>
         </div>
-        <FaChevronRight className="arrow" onClick={handleRightArrowClick}/>
+        <FaChevronRight className="arrow1" onClick={handleRightArrowClick}/>
       </div>
     </CarouselContext.Provider>
   );

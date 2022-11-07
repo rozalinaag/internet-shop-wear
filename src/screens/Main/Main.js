@@ -18,7 +18,7 @@ const Main = () => {
 
       <div className={styles.carousel}>
         <CarouselCompaund infinite>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
@@ -31,25 +31,25 @@ const Main = () => {
                   <Cart  key={3} id={3} />
                 </div>
                 <div className={styles.item}>
-                  <Cart  key={4} i id={4} />
+                  <Cart  key={4} id={4} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={5} />
+                  <Cart key = {5} id={5} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={6} />
+                  <Cart  key = {6}  id={6} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={7} />
+                  <Cart  key = {7}  id={7} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={8} />
+                  <Cart  key = {8} id={8} />
                 </div>
               </div>
             </div>
@@ -59,32 +59,32 @@ const Main = () => {
 
       <div className={styles.carousel + " " + styles.carouselForLaptop}>
         <CarouselCompaund infinite>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={1} />
+                  <Cart  key = {1} id={1} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={2} />
+                  <Cart  key = {2} id={2} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={3} />
+                  <Cart  key = {3} id={3} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={4} />
+                  <Cart  key = {4}  id={4} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={5} />
+                  <Cart key = {5}  id={5} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={6} />
+                  <Cart key = {6}  id={6} />
                 </div>
               </div>
             </div>
@@ -94,50 +94,50 @@ const Main = () => {
 
       <div className={styles.carousel +" " + styles.carouselForTablet}>
         <CarouselCompaund infinite>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={1} />
+                  <Cart key = {1}  id={1} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={2} />
+                  <Cart  key = {2}  id={2} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={3} />
+                  <Cart key = {3}  id={3} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={4} />
+                  <Cart key = {4}  id={4} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={5} />
+                  <Cart key = {5} id={5} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={6} />
+                  <Cart key = {6} id={6} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={7} />
+                  <Cart key = {7} id={7} />
                 </div>
                 <div className={styles.item}>
-                  <Cart id={8} />
+                  <Cart key = {8} id={8} />
                 </div>
               </div>
             </div>
@@ -147,56 +147,56 @@ const Main = () => {
 
       <div className={styles.carousel +" " + styles.carouselForMobile}>
         <CarouselCompaund infinite>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={1} />
+                  <Cart key = {1} id={1} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={2} />
+                  <Cart key = {2} id={2} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={3} />
+                  <Cart key = {3} id={3} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={4} />
+                  <Cart key = {4} id={4} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={5} />
+                  <Cart key = {5} id={5} />
                 </div>
               </div>
             </div>
           </CarouselCompaund.Page>
-          <CarouselCompaund.Page>
+          <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
                 <div className={styles.item}>
-                  <Cart id={6} />
+                  <Cart key = {6} id={6} />
                 </div>
               </div>
             </div>

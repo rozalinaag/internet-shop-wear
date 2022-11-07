@@ -5,7 +5,7 @@ import {WhatsAppOutlined, EnvironmentOutlined, MailOutlined} from '@ant-design/i
 
 const Footer = () => {
   return (
-    <div className={styles.footer}>
+    <div className={styles.footer} id="t1">
       <div className={styles.footerMain}>
         <div className={styles.footerLocation}>
           <div className={styles.item + " " + styles.locationTitle}>Магазин нижнего белья</div>

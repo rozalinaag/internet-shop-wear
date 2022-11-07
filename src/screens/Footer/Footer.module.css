@@ -3,6 +3,7 @@
   height: 30vh;
   color:rgb(232, 215, 215);
   position: relative;
+  box-shadow: inset 0 3px 10px rgba(99, 99, 99, 0.5);
 }
 
 .footerMain{

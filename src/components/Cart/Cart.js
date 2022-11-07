@@ -17,12 +17,12 @@ const Cart = (props) => {
   const Componeny = () => {
 
     
-    if (load==false){
+    if (load===false){
       fetch(process.env.REACT_APP_HOST + '/carts/' + props.id)
       .then(response => response.json())
       .then(
         (data) => {
-        if (load == false) {
+        if (load === false) {
           setData({
             id: data.id,
             img: data.img, 
