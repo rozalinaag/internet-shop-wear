@@ -4,7 +4,7 @@ import CarouselCompaund from '../../components/Carousel/Carousel';
 const HeaderCarousel = () => {
   return (
     <div className={styles.HeaderCarousel}>
-      <CarouselCompaund infinite>
+      <CarouselCompaund infinite TRANSITION_DURATION={0}>
         <CarouselCompaund.Page key={Math.random()}>
           <div className={styles.catalog}>
             <div className={styles.items}>

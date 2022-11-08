@@ -17,7 +17,7 @@ const Main = () => {
       </div>
 
       <div className={styles.carousel}>
-        <CarouselCompaund infinite>
+        <CarouselCompaund infinite TRANSITION_DURATION={300}>
           <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
@@ -93,7 +93,7 @@ const Main = () => {
       </div>
 
       <div className={styles.carousel +" " + styles.carouselForTablet}>
-        <CarouselCompaund infinite>
+        <CarouselCompaund infinite TRANSITION_DURATION={300}>
           <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>
@@ -146,7 +146,7 @@ const Main = () => {
       </div>
 
       <div className={styles.carousel +" " + styles.carouselForMobile}>
-        <CarouselCompaund infinite>
+        <CarouselCompaund infinite TRANSITION_DURATION={300}>
           <CarouselCompaund.Page key={Math.random()}>
             <div className={styles.catalog}>
               <div className={styles.items}>

@@ -17,6 +17,7 @@ function App() {
           <Link key={2} id={2} to='/catalog' className="item katalog">Каталог</Link>
           <a key={3} id={3} href="#t1" className="item contacts">Контакты</a>
           <Link key={4}  id={4} to='/about' className="item about-us">О нас</Link>
+          
       </Header>
       <Routes>
         <Route path="/about" element={<Aboutpage/>} />

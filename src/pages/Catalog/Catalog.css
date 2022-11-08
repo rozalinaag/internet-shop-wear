@@ -1,0 +1,12 @@
+.catalog--body{
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.catalog--item{
+  width: 100px;
+}

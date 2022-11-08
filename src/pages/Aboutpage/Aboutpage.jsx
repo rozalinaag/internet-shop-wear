@@ -1,12 +1,12 @@
 import Footer from "../../screens/Footer/Footer"
-import HeaderCarousel from "../../screens/HeaderCarousel/HeaderCarousel"
+
 import './Aboutpage.css';
 
 
 const Aboutpage = () => {
   return (
     <div>
-      <HeaderCarousel/>
+      
       <div className="AboutUs">
       <h1>INCANTO – итальянская марка утонченного белья и купальников</h1>
       <p>INCANTO – итальянский бренд, который специализируется на производстве нижнего 

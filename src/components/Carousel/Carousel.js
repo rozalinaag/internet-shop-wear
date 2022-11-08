@@ -5,9 +5,7 @@ import { Page } from './Page/Page';
 import { CarouselContext } from './carousel-context';
 
 
-const TRANSITION_DURATION = 300
-
-const Carousel = ({ children, infinite }) => {
+const Carousel = ({ children, infinite, TRANSITION_DURATION }) => {
   const [offset, setOffset] = useState(0);
   const [width, setWidth] = useState(500);
   const [pages, setPages] = useState([]);
