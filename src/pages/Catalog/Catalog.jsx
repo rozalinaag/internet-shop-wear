@@ -1,9 +1,10 @@
 import Footer from "../../screens/Footer/Footer"
 import HeaderCarousel from "../../screens/HeaderCarousel/HeaderCarousel"
 import './Catalog.css';
-import Cart from '../../components/Cart/Cart';
 import axios from 'axios';
 import { useState, useEffect } from "react";
+
+
 const Catalog = () => {
 
   const [photos, setPhotos] = useState([]);
@@ -22,14 +23,14 @@ const Catalog = () => {
             })
             .finally(() => setFetching(false));
     } 
-  }, [fetching])
+  }, [fetching, currentPage, photos])
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler)
     return function() {
       document.removeEventListener('scroll', scrollHandler);
     }
-  }, [])
+  })
 
   const scrollHandler = (e) => {
     if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) <100 
@@ -59,4 +60,4 @@ const Catalog = () => {
   )
 }
 
-export {Catalog}
+export default Catalog;

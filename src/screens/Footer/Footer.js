@@ -16,9 +16,9 @@ const Footer = () => {
         <div className={styles.socialNetwork}>
           <div>@lingeria</div>
           <div className={styles.socialIcons}>
-            <SocialIcon url="https://vk.com"  style={{ height: 25, width: 25 }}  key="25" />
-            <SocialIcon url="https://web.telegram.org/z/" style={{ height: 25, width: 25 }} key="25" />
-            <SocialIcon url="https://www.instagram.com/" style={{ height: 25, width: 25 }} key="25" />
+            <SocialIcon url="https://vk.com"  style={{ height: 25, width: 25 }}  key="1" />
+            <SocialIcon url="https://web.telegram.org/z/" style={{ height: 25, width: 25 }} key="2" />
+            <SocialIcon url="https://www.instagram.com/" style={{ height: 25, width: 25 }} key="3" />
           </div>
         </div>
       </div>

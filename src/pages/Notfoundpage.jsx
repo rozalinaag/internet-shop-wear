@@ -8,4 +8,4 @@ const Notfoundpage = () => {
   )
 }
 
-export {Notfoundpage}
+export default Notfoundpage;

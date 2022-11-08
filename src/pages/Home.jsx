@@ -4,7 +4,6 @@ import Benefits from '../screens/Benefits/Benefits';
 import HeaderCarousel from '../screens/HeaderCarousel/HeaderCarousel';
 
 const Home = () => {
-  console.log('hello')
   return (
     <div>
       <HeaderCarousel/>
@@ -15,4 +14,4 @@ const Home = () => {
   )
 }
 
-export {Home}
+export default Home;

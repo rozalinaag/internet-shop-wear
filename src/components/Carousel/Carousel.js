@@ -5,12 +5,14 @@ import { Page } from './Page/Page';
 import { CarouselContext } from './carousel-context';
 
 
-const Carousel = ({ children, infinite, TRANSITION_DURATION }) => {
+const Carousel = ({ children, infinite, transitionTime }) => {
+
+  const TRANSITION_DURATION = transitionTime;
   const [offset, setOffset] = useState(0);
   const [width, setWidth] = useState(500);
   const [pages, setPages] = useState([]);
   const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
-  const [transitionDuration, setTransitionDuration] = useState(TRANSITION_DURATION)
+  const [transitionDuration, setTransitionDuration] = useState(transitionTime)
 
   const windowElRef = useRef()
 
@@ -47,7 +49,7 @@ const Carousel = ({ children, infinite, TRANSITION_DURATION }) => {
         setTransitionDuration(TRANSITION_DURATION)
       }, TRANSITION_DURATION)
     }
-  }, [transitionDuration])
+  }, [transitionDuration, TRANSITION_DURATION])
 
   useEffect(() => {
     if (!infinite) return ;
@@ -67,7 +69,7 @@ const Carousel = ({ children, infinite, TRANSITION_DURATION }) => {
       return;
     }
     
-  }, [infinite, offset, width, pages, clonesCount])
+  }, [infinite, offset, width, pages, clonesCount, TRANSITION_DURATION])
   
   const handleLeftArrowClick = () => {
   

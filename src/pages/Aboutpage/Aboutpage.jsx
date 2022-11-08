@@ -34,4 +34,4 @@ const Aboutpage = () => {
   )
 }
 
-export {Aboutpage}
+export default Aboutpage;

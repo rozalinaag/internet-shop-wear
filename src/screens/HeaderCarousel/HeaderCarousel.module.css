@@ -11,6 +11,9 @@
   background-size: 100%;
   width:100%;
 }
+.transparentItem{
+  color: transparent;
+}
 .item2{
   background-image: url("../../assets/img/incanto2.jpg");
 }
