@@ -1,6 +1,5 @@
 import styles from './Cart.module.css';
 import React, { useState } from 'react';
-import { ArrowRightOutlined } from '@ant-design/icons';
 
 const Cart = (props) => {
   const [data, setData] = useState({
@@ -55,10 +54,9 @@ const Cart = (props) => {
           <div className={styles.topName}>Бестселлер</div>
           <a href="/catalog" className={styles.name + ' ' + styles.a}>{data.name}</a>
           <div className={styles.price}>{data.price}₽</div>
-          <div className={styles.description}>
+          <a href="/catalog" className={styles.description}>
             <button className={styles.button}>Подробнее</button>
-            <ArrowRightOutlined />
-          </div>
+          </a>
         </div>
       </div>
     </div>

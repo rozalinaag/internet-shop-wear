@@ -8,10 +8,6 @@ const Header = ({children}) => {
         <div className="header-items items">
           {children}
         </div>
-      {/* 
-      <a href="#top" id="menu" className='downOutlined'>
-        <DownOutlined style={{ color: 'white', fontSize: '30px', fontWeight: '800' }}/>
-      </a>*/}
     </div>
   );
 };

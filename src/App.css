@@ -1,0 +1,24 @@
+.desktop{
+  display: block;
+}
+
+.mobile{
+  display: none;
+}
+
+@media (max-width: 750px){
+  .desktop{
+    display: none;
+  }
+  
+  .mobile{
+    display: block;
+  }
+  .part-icons{
+    display: flex;
+    
+  }
+  .header-main{
+    display: flex;
+  }
+}

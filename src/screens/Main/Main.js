@@ -201,16 +201,6 @@ const Main = () => {
           </CarouselCompaund.Page>
         </CarouselCompaund>
       </div>
-
-      <a
-        href="/catalog"
-        className={styles.mainHeader + ' ' + styles.mainHeader2}
-      >
-        <div className={styles.headerName}>Перейти в каталог</div>
-        <div className={styles.headerArrow}>
-          <ArrowRightOutlined />
-        </div>
-      </a>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 .header {
   background-color: rgb(68, 41, 41);
   background-repeat: no-repeat;
-  padding-top: 30px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   background-size: cover;
   width: 100%;
   position: relative;
@@ -127,10 +127,11 @@
 }
 
 @media (max-width: 750px) {
-  .items{
-    flex-wrap: wrap;
-  }
+  
   .item{
-    width: 100%;
+    width: 60px;
+  }
+  .part-icons{
+    display: flex;
   }
 }
