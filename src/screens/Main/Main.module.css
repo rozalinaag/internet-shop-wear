@@ -51,6 +51,9 @@ a{
   margin-left: 20px;
   margin-right: 20px;
   margin-top: 40px;
+  animation-name: Appearance;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(.1,-.6,.2,0);
 }
 
 .catalog{

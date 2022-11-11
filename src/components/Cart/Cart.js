@@ -38,16 +38,16 @@ const Cart = (props) => {
       <div className={styles.cart}>
         <div className={styles.cartHeader}>
           <div className={styles.picture + ' ' + styles.picture1}>
-            <img width="400" height="500" alt="" src={data.img}></img>
+            <img width="400" height="500" alt="" src={data.img[0]}></img>
           </div>
           <div className={styles.picture + ' ' + styles.pictureLaptop}>
-            <img width="350" height="450" alt="" src={data.img}></img>
+            <img width="350" height="450" alt="" src={data.img[0]}></img>
           </div>
           <div className={styles.picture + ' ' + styles.pictureForMobile}>
-            <img width="300" height="400" alt="" src={data.img}></img>
+            <img width="300" height="400" alt="" src={data.img[0]}></img>
           </div>
           <div className={styles.picture + ' ' + styles.pictureForMiniMobile}>
-            <img width="200" height="300" alt="" src={data.img}></img>
+            <img width="200" height="300" alt="" src={data.img[0]}></img>
           </div>
         </div>
         <div className={styles.cartFooter}>

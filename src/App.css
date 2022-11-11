@@ -5,6 +5,10 @@
 .mobile{
   display: none;
 }
+.active{
+  color: rgb(0, 0, 0) !important;
+  font-weight: 600 !important;
+} 
 
 @media (max-width: 750px){
   .desktop{

@@ -72,7 +72,7 @@ const Carousel = ({ children, infinite, transitionTime }) => {
   }, [infinite, offset, width, pages, clonesCount, TRANSITION_DURATION])
   
   const handleLeftArrowClick = () => {
-  
+    console.log("left arrot")
     setOffset((currentOffset) => {
       const newOffset = currentOffset + width;
 
@@ -105,7 +105,7 @@ const Carousel = ({ children, infinite, transitionTime }) => {
   return (
     <CarouselContext.Provider value={{ width }}>
       <div className="main-container">
-        <FaChevronLeft className="arrow" onClick={handleLeftArrowClick}/>
+        <FaChevronLeft className=" arrow arrow-left" onClick={handleLeftArrowClick}/>
         <div className="window" ref={windowElRef}>
           <div
             className="all-pages-container"
@@ -117,7 +117,7 @@ const Carousel = ({ children, infinite, transitionTime }) => {
             {pages}
           </div>
         </div>
-        <FaChevronRight className="arrow1" onClick={handleRightArrowClick}/>
+        <FaChevronRight className=" arrow arrow-rigth" onClick={handleRightArrowClick}/>
       </div>
     </CarouselContext.Provider>
   );

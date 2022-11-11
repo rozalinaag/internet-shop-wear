@@ -1,5 +1,13 @@
 .HeaderCarousel{
   position: relative;
+  animation-name: Appearance;
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(.1,-.6,.2,0);
+}
+
+@keyframes Appearance {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .item1{

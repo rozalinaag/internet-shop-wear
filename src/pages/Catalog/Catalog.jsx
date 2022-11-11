@@ -4,7 +4,7 @@ import './Catalog.css';
 import axios from 'axios';
 import { useState, useEffect } from "react";
 import CartForCatalog from "../../components/CartForCatalog/CartForCatalog";
-
+import { Link } from 'react-router-dom';
 
 const Catalog = () => {
 
@@ -15,13 +15,11 @@ const Catalog = () => {
 
   useEffect(() => {
     if(fetching){
-      console.log('fetching')
       axios.get(process.env.REACT_APP_HOST + `/carts?_limit=8&_page=${currentPage}`)
             .then(response => {
               setPhotos([...photos, ...response.data])
               setCurrentPage(prevState => prevState + 1)
               setTotalCount(100)
-              console.log(response.data);
             })
             .finally(() => setFetching(false));
     } 
@@ -42,6 +40,7 @@ const Catalog = () => {
     
   }
 
+
   return (
     <div>
       <HeaderCarousel/>
@@ -49,9 +48,9 @@ const Catalog = () => {
       <div className="catalog">
         <div className="catalog--body">
           {photos.map(photo => 
-              <div className="catalog--item" key={photo.id}>
-                <CartForCatalog key={photo.id} name={photo.name} img={photo.img} price={photo.price}/>
-              </div>
+              <Link to = {`/catalog/${photo.id}`} className="catalog--item" key={photo.id}>
+                <CartForCatalog key={photo.id} name={photo.name} img={photo.img[0]} price={photo.price}/>
+              </Link>
             )}
         </div>
       </div>
