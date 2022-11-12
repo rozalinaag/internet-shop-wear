@@ -4,7 +4,7 @@ import { Routes, Route, NavLink } from 'react-router-dom';
 import Aboutpage from './pages/Aboutpage/Aboutpage';
 import Catalog from './pages/Catalog/Catalog';
 import Notfoundpage from './pages/Notfoundpage';
-import OpenCart from './pages/OpenCart';
+import OpenCart from './pages/OpenCart/OpenCart';
 import Home from './pages/Home';
 import {
   HomeOutlined,

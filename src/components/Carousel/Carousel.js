@@ -72,7 +72,6 @@ const Carousel = ({ children, infinite, transitionTime }) => {
   }, [infinite, offset, width, pages, clonesCount, TRANSITION_DURATION])
   
   const handleLeftArrowClick = () => {
-    console.log("left arrot")
     setOffset((currentOffset) => {
       const newOffset = currentOffset + width;
 

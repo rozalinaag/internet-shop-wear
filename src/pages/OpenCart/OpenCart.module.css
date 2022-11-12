@@ -1,0 +1,141 @@
+.body{
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+  padding-bottom: 50px;
+  align-items: center;
+  gap: 30px;
+  background-color: rgb(254, 252, 252);
+}
+.backLink{
+  font-size: larger;
+  width: 100%;
+  text-align: center;
+  padding-top: 30px;
+}
+.bodyPictures{
+  display: flex;
+  gap: 20px;
+}
+
+.fourPictures{
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pictureMain {
+  overflow: hidden; /* Скрываем всё за контуром */
+ }
+ .pictureMain img {
+  transition: 1s; /* Время эффекта */
+ }
+ .pictureMain img:hover {
+  transform: scale(1.3); /* Увеличиваем масштаб */
+ }
+
+.bodyItems{
+  width: 740px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+.price{
+  color: rgb(176, 48, 48);
+  font-weight: 650;
+  font-size: 20px;
+}
+.name{
+  text-align: center;
+}
+.description{
+  text-align: justify;
+}
+.pictureMainLaptop{
+  display: none;
+}
+.pictureMainMobile{
+  display: none;
+}
+.pictureMainMonitor{
+  display: block;
+}
+.fourPictureLaptop{
+  display: block;
+}
+.fourPictureMobile{
+  display: none;
+}
+
+.slider{
+  display: none;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 30px;
+}
+.itemSlider{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+
+@media (max-width: 820px){
+  .bodyPictures{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .fourPictures{
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+  }
+  .bodyItems{
+    width: 550px;
+  }
+  .pictureMainLaptop{
+    display: block;
+  }
+  .pictureMainMobile{
+    display: none;
+  }
+  .pictureMainMonitor{
+    display: none;
+    position: absolute;
+  }
+}
+
+@media (max-width: 600px){
+  .fourPictureLaptop{
+    display: none;
+  }
+  .fourPictureMobile{
+    display: block;
+  }
+  .pictureMainLaptop{
+    display: none;
+  }
+  .pictureMainMobile{
+    display: block;
+  }
+  .pictureMainMonitor{
+    display: none;
+  }
+  .bodyItems{
+    width: 350px;
+  }
+}
+@media (max-width: 500px){
+  .bodyPictures{
+    display: none;
+  }
+  .slider{
+    display: block;
+  }
+  .bodyItems{
+    width: 250px;
+  }
+}
