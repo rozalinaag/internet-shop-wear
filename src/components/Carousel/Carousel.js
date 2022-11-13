@@ -7,12 +7,13 @@ import { CarouselContext } from './carousel-context';
 
 const Carousel = ({ children, infinite, transitionTime }) => {
 
-  const TRANSITION_DURATION = transitionTime;
+  const TRANSITION_DURATION = 300;
   const [offset, setOffset] = useState(0);
   const [width, setWidth] = useState(500);
   const [pages, setPages] = useState([]);
   const [clonesCount, setClonesCount] = useState({head: 0, tail: 0})
   const [transitionDuration, setTransitionDuration] = useState(transitionTime)
+  const [autoPlay, setAutoPlay] = useState(true);
 
   const windowElRef = useRef()
 
@@ -99,7 +100,14 @@ const Carousel = ({ children, infinite, transitionTime }) => {
     console.log("he");
     IntervalLeftArrow();
   }*/
+
+  useEffect(() => {
   
+      const timer = setTimeout(handleRightArrowClick, 6000);
+      return () => {
+        clearTimeout(timer)
+     } 
+  });
 
   return (
     <CarouselContext.Provider value={{ width }}>

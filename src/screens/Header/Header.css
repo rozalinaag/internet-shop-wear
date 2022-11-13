@@ -54,40 +54,6 @@
   transition: all ease-in-out .7s;
 }
 
-@-webkit-keyframes top-down {
-  0% {
-    -webkit-box-align: start;
-            align-items: flex-start;
-  }
-  50% {
-    -webkit-box-align: end;
-            align-items: flex-end;
-  }
-  100% {
-    -webkit-box-align: start;
-            align-items: flex-start;
-  }
-}
-
-@keyframes top-down {
-  0% {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  50% {
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
-  }
-  100% {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-}
-
-
 /* tablet */
 @media (min-width: 1024px) and (max-width: 1240px)  {}
 

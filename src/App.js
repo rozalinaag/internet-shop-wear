@@ -6,13 +6,14 @@ import Catalog from './pages/Catalog/Catalog';
 import Notfoundpage from './pages/Notfoundpage';
 import OpenCart from './pages/OpenCart/OpenCart';
 import Home from './pages/Home';
+import Contacts from './pages/Contacts/Contacts';
 import {
   HomeOutlined,
   PhoneOutlined,
   TeamOutlined,
   ShoppingOutlined,
 } from '@ant-design/icons';
-import Contacts from './pages/Contacts';
+
 
 
 const App = () => {

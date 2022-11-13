@@ -4,6 +4,7 @@ import CarouselCompaund from '../../components/Carousel/Carousel';
 const HeaderCarousel = () => {
   return (
     <div className={styles.HeaderCarousel}>
+      <div className={styles.HeaderMonitor} >
       <CarouselCompaund infinite transitionTime={0}>
         <CarouselCompaund.Page>
           <div className={styles.catalog}>
@@ -23,16 +24,11 @@ const HeaderCarousel = () => {
             </div>
           </div>
         </CarouselCompaund.Page>
-        <CarouselCompaund.Page>
-          <div className={styles.catalog}>
-            <div className={styles.items}>
-              <div className={styles.item + ' ' + styles.item3}>
-              <div className={styles.transparentItem}>"ds"</div>
-              </div>
-            </div>
-          </div>
-        </CarouselCompaund.Page>
       </CarouselCompaund>
+      </div>
+      <div className={styles.headerForMobile}>
+        <div className={styles.downArow}>\/</div>
+      </div>
     </div>
   );
 };

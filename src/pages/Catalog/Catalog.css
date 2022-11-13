@@ -9,6 +9,7 @@
   grid-column-gap: 3em;
   grid-row-gap: 3em;
   background-color: rgb(254, 252, 252);
+  
 }
 .catalog-title{
   width: 100%;
@@ -17,8 +18,14 @@
   padding-top: 20px;
   padding-bottom: 10px;
   font-family: 'Roboto', sans-serif;
+  box-shadow: inset 0px 4px 2px rgba(0, 0, 0, 0.2);
 }
-
+.backTop{
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 1400px){
   .catalog--body{
     grid-template-columns: repeat(3, 300px);
