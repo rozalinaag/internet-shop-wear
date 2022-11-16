@@ -9,7 +9,8 @@ import { BackTop } from 'antd';
 
 const Catalog = () => {
 
-  const [photos, setPhotos] = useState([]);
+  const [photos, setPhotos] = useState([
+  ]);
   const [currentPage, setCurrentPage] = useState(0); 
   const [fetching, setFetching] = useState(true); // true if we want to load new data
   const [totalCount, setTotalCount] = useState(10);
