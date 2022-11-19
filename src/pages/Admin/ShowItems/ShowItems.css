@@ -1,0 +1,23 @@
+.show--item{
+  border-bottom: 2px solid rgba(0, 0, 0, 0.295);
+  position: relative;
+}
+
+.change--delete{
+  position: absolute;
+  display: flex;
+  right: 0;
+  height: 100px;
+  font-size: 25px;
+  gap: 15px;
+  font-weight: 700;
+  z-index: 3;
+  cursor: pointer;
+}
+.change{
+  color:rgb(99, 99, 99);
+}
+
+.delete{
+  color: rgb(159, 39, 39);
+}

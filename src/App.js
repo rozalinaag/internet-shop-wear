@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Contacts from './pages/Contacts/Contacts';
 import LoginDemo from './pages/Admin/Autorization/Autorization';
 import CreateCart from './pages/Admin/CreateCart/CreateCart';
+import ShowItems from './pages/Admin/ShowItems/ShowItems';
 import {
   HomeOutlined,
   PhoneOutlined,
@@ -79,6 +80,7 @@ const App = () => {
         <Route path="*" element={<Notfoundpage />} />
         <Route path="/admin" element={<LoginDemo />} />
         <Route path="/admin/create" element={<CreateCart />} />
+        <Route path="/admin/showitems" element={<ShowItems />} />
       </Routes>
     </div>
   );

@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 200px;
-  gap: 5px;
+  gap: 3px;
 }
 
 .auth-main{
@@ -18,10 +18,43 @@
 
 .auth-item{
   height: 30px;
+  border-radius: 2px;
+  border-color:  rgba(68, 41, 41, 0.515);
 }
 
 .auth-button{
   background-color: rgb(68, 41, 41);
   color: white;
   height: 35px;
+  cursor: pointer;
+}
+
+.message-warning{
+  visibility:inherit;
+  color: red;
+  animation-name: fieldValidationError;
+  animation-iteration-count: 1;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+  animation-duration: 0.2s;
+}
+
+.message-correct{
+  visibility: hidden;
+  font-size: 15px;
+}
+
+.auth-button:disabled {
+ opacity: 0.5;
+}
+
+@keyframes fieldValidationError {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
