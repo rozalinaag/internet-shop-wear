@@ -4,8 +4,7 @@ import style from './OpenCart.module.css';
 import { Link } from 'react-router-dom';
 import Footer from '../../screens/Footer/Footer';
 import CarouselCompaund from '../../components/Carousel/Carousel';
-import Cart from '../../components/Cart/Cart';
-import HeaderCarousel from '../../screens/HeaderCarousel/HeaderCarousel';
+
 const OpenCart = () => {
   const [load, setLoad] = useState(true);
   const [dataCart, setDataCart] = useState({
@@ -34,7 +33,16 @@ const OpenCart = () => {
             setLoad(false);
             setMainPicture(data.img[0]);
           }
-        });
+        }).catch((err) => {
+        
+          setDataCart({
+            id: id,
+            img: [''],
+            name: 'Товар скоро поступит',
+            price: '0',
+            description: 'Товар скоро поступит',
+          });
+        })
     }
   }, [load, dataCart, id]);
 

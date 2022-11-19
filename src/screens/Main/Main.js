@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 
 const Main = () => {
 
-  const id_items = [1, 2, 3, 4];
+  const id_items = [1, 2, 3];
   return (
     <div className={styles.main}>
       <a href="/catalog" className={styles.mainHeader}>
@@ -31,9 +31,6 @@ const Main = () => {
                  <Link to={"/catalog/" + (3)} className={styles.item}>
                    <Cart id={3} />
                  </Link>
-                 <Link to={"/catalog/" + (4)} className={styles.item}>
-                   <Cart id={4} />
-                 </Link>
                </div>
              </div>
            </CarouselCompaund.Page>
@@ -45,9 +42,6 @@ const Main = () => {
                  </Link>
                  <Link to={"/catalog/" + (3)} className={styles.item}>
                    <Cart id={3} />
-                 </Link>
-                 <Link to={"/catalog/" + (4)} className={styles.item}>
-                   <Cart id={4} />
                  </Link>
                  <Link to={"/catalog/" + (1)} className={styles.item}>
                    <Cart id={1} />
@@ -78,14 +72,14 @@ const Main = () => {
            <CarouselCompaund.Page>
              <div className={styles.catalog}>
                <div className={styles.items}>
-                 <Link to={"/catalog/" + 4} className={styles.item}>
-                   <Cart id={4} />
+                 <Link to={"/catalog/" + 2} className={styles.item}>
+                   <Cart id={2} />
+                 </Link>
+                 <Link to={"/catalog/" + (3)} className={styles.item}>
+                   <Cart id={3} />
                  </Link>
                  <Link to={"/catalog/" + (1)} className={styles.item}>
                    <Cart id={1} />
-                 </Link>
-                 <Link to={"/catalog/" + (2)} className={styles.item}>
-                   <Cart id={2} />
                  </Link>
                </div>
              </div>
@@ -96,11 +90,11 @@ const Main = () => {
                  <Link to={"/catalog/" + 3} className={styles.item}>
                    <Cart id={3} />
                  </Link>
-                 <Link to={"/catalog/" + (4)} className={styles.item}>
-                   <Cart id={4} />
-                 </Link>
                  <Link to={"/catalog/" + (1)} className={styles.item}>
                    <Cart id={1} />
+                 </Link>
+                 <Link to={"/catalog/" + (2)} className={styles.item}>
+                   <Cart id={2} />
                  </Link>
                </div>
              </div>
@@ -115,11 +109,11 @@ const Main = () => {
              <CarouselCompaund.Page>
              <div className={styles.catalog}>
                <div className={styles.items}>
-                 <Link to={"/catalog/" + id} className={styles.item}>
-                   <Cart id={id} />
+                 <Link to={"/catalog/" + 1} className={styles.item}>
+                   <Cart id={1} />
                  </Link>
-                 <Link to={"/catalog/" + (id + 2)} className={styles.item}>
-                   <Cart id={id+2} />
+                 <Link to={"/catalog/" + (2)} className={styles.item}>
+                   <Cart id={2} />
                  </Link>
                </div>
              </div>

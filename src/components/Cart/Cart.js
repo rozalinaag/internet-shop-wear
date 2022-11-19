@@ -1,7 +1,7 @@
 import styles from './Cart.module.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const Cart = (props) => {
+const Cart = ({id}) => {
   const [data, setData] = useState({
     id: '',
     img: '',
@@ -10,28 +10,36 @@ const Cart = (props) => {
     description: '',
   });
 
-  const [load, SetLoad] = useState(false);
+  const [load, setLoad] = useState(true);
 
-  const Componeny = () => {
-    if (load === false) {
-      fetch(process.env.REACT_APP_HOST + '/carts/' + props.id)
-        .then((response) => response.json())
-        .then((data) => {
-          if (load === false) {
+  useEffect(() => {
+      if (load) {
+        fetch(process.env.REACT_APP_HOST + `/carts/${id}`)
+          .then((response) => response.json())
+          .then((data) => {
+            if (load === true) {
+              console.log(data);
+                setData({
+                  id: data?.id,
+                  img: data?.img,
+                  name: data?.name,
+                  price: data?.price,
+                  description: data?.description,
+                });
+              setLoad(false);
+            }
+          }).catch((err) => {
             setData({
-              id: data.id,
-              img: data.img,
-              name: data.name,
-              price: data.price,
-              description: data.description,
+              id: id,
+              img: [''],
+              name: 'Товар скоро поступит',
+              price: '0',
+              description: 'Товар скоро поступит',
             });
-            SetLoad(true);
-          }
-        });
-    }
-  };
-
-  Componeny();
+            setLoad(false);
+          })
+      }
+    }, [load]);
 
   return (
     <div>
@@ -52,7 +60,9 @@ const Cart = (props) => {
         </div>
         <div className={styles.cartFooter}>
           <div className={styles.topName}>Бестселлер</div>
-          <a href="/catalog" className={styles.name + ' ' + styles.a}>{data.name}</a>
+          <a href="/catalog" className={styles.name + ' ' + styles.a}>
+            {data.name}
+          </a>
           <div className={styles.price}>{data.price}₽</div>
           <a href="/catalog" className={styles.description}>
             <button className={styles.button}>Подробнее</button>

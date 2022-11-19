@@ -9,7 +9,7 @@ import { BackTop } from 'antd';
 
 const Catalog = () => {
 
-  const [photos, setPhotos] = useState([
+  const [carts, setCarts] = useState([
   ]);
   const [currentPage, setCurrentPage] = useState(0); 
   const [fetching, setFetching] = useState(true); // true if we want to load new data
@@ -19,13 +19,13 @@ const Catalog = () => {
     if(fetching){
       axios.get(process.env.REACT_APP_HOST + `/carts?_limit=8&_page=${currentPage}`)
             .then(response => {
-              setPhotos([...photos, ...response.data])
+              setCarts([...carts, ...response.data])
               setCurrentPage(prevState => prevState + 1)
               setTotalCount(100)
             })
             .finally(() => setFetching(false));
     } 
-  }, [fetching, currentPage, photos])
+  }, [fetching, currentPage, carts])
 
   useEffect(() => {
     document.addEventListener('scroll', scrollHandler)
@@ -36,7 +36,7 @@ const Catalog = () => {
 
   const scrollHandler = (e) => {
     if (e.target.documentElement.scrollHeight - (e.target.documentElement.scrollTop + window.innerHeight) <100 
-        && photos.length < totalCount){
+        && carts.length < totalCount){
       setFetching(true);
     }
     
@@ -60,11 +60,11 @@ const Catalog = () => {
       <div className="catalog-title">Каталог</div>
       <div className="catalog">
         <div className="catalog--body">
-          {photos.map(photo => 
-              <Link to = {`/catalog/${photo.id}`} className="catalog--item" key={photo.id}>
-                <CartForCatalog key={photo.id} name={photo.name} img={photo.img[0]} price={photo.price}/>
+          {carts.length > 0 ? (carts.map(cart => 
+              <Link to = {`/catalog/${cart.id}`} className="catalog--item" key={cart.id}>
+                <CartForCatalog key={cart.id} name={cart.name} img={cart.img[0]} price={cart.price}/>
               </Link>
-            )}
+            )): <div>Пока что нет доступных товаров :(</div>}
         </div>
       </div>
       <BackTop className="backTop">
