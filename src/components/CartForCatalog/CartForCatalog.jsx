@@ -1,7 +1,6 @@
 import styles from './CartForCatalog.module.css';
 
 const CartForCatalog = ({ id, img, name, price }) => {
-  // console.log(id);
 
   return (
     <div className={styles.Cart}>

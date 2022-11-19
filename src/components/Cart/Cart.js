@@ -18,7 +18,6 @@ const Cart = ({id}) => {
           .then((response) => response.json())
           .then((data) => {
             if (load === true) {
-              console.log(data);
                 setData({
                   id: data?.id,
                   img: data?.img,

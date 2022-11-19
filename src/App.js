@@ -7,14 +7,14 @@ import Notfoundpage from './pages/Notfoundpage';
 import OpenCart from './pages/OpenCart/OpenCart';
 import Home from './pages/Home';
 import Contacts from './pages/Contacts/Contacts';
+import LoginDemo from './pages/Admin/Autorization/Autorization';
+import CreateCart from './pages/Admin/CreateCart/CreateCart';
 import {
   HomeOutlined,
   PhoneOutlined,
   TeamOutlined,
   ShoppingOutlined,
 } from '@ant-design/icons';
-
-
 
 const App = () => {
   return (
@@ -26,7 +26,12 @@ const App = () => {
         <NavLink key={2} id={2} to="/catalog" className="item katalog desktop">
           Каталог
         </NavLink>
-        <NavLink key={3} id={3} to="/contacts" className="item contacts desktop">
+        <NavLink
+          key={3}
+          id={3}
+          to="/contacts"
+          className="item contacts desktop"
+        >
           Контакты
         </NavLink>
         <NavLink key={4} id={4} to="/about" className="item about-us desktop">
@@ -38,13 +43,28 @@ const App = () => {
             <HomeOutlined />
           </NavLink>
           <div className="part-icons mobile">
-            <NavLink key={2} id={2} to="/catalog" className="item katalog mobile">
+            <NavLink
+              key={2}
+              id={2}
+              to="/catalog"
+              className="item katalog mobile"
+            >
               <ShoppingOutlined />
             </NavLink>
-            <NavLink key={3} id={3} to="/contacts" className="item contacts mobile">
+            <NavLink
+              key={3}
+              id={3}
+              to="/contacts"
+              className="item contacts mobile"
+            >
               <PhoneOutlined />
             </NavLink>
-            <NavLink key={4} id={4} to="/about" className="item about-us mobile">
+            <NavLink
+              key={4}
+              id={4}
+              to="/about"
+              className="item about-us mobile"
+            >
               <TeamOutlined />
             </NavLink>
           </div>
@@ -57,6 +77,8 @@ const App = () => {
         <Route path="/catalog" element={<Catalog />} />
         <Route path="/contacts" element={<Contacts />} />
         <Route path="*" element={<Notfoundpage />} />
+        <Route path="/admin" element={<LoginDemo />} />
+        <Route path="/admin/create" element={<CreateCart />} />
       </Routes>
     </div>
   );

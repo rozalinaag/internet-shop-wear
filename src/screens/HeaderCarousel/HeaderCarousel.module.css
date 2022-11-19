@@ -5,6 +5,13 @@
   animation-timing-function: cubic-bezier(.1,-.6,.2,0);
 }
 
+button{
+  padding: 0;
+  border: none;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+}
 @keyframes Appearance {
   0% {opacity: 0;}
   100% {opacity: 1;}

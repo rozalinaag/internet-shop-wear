@@ -2,6 +2,17 @@ import styles from './HeaderCarousel.module.css';
 import CarouselCompaund from '../../components/Carousel/Carousel';
 
 const HeaderCarousel = () => {
+
+  const handlerDownArrow = () => {
+    console.log("button")
+    window.scrollTo({
+      top: 600,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }
+
+
   return (
     <div className={styles.HeaderCarousel}>
       <div className={styles.HeaderMonitor} >
@@ -26,9 +37,9 @@ const HeaderCarousel = () => {
         </CarouselCompaund.Page>
       </CarouselCompaund>
       </div>
-      <div className={styles.headerForMobile}>
+      <button onClick={handlerDownArrow} className={styles.headerForMobile}>
         <div className={styles.downArow}>\/</div>
-      </div>
+      </button>
     </div>
   );
 };
