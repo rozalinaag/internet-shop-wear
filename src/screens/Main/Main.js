@@ -28,7 +28,7 @@ const Main = () => {
     },
     {
       id_art: 3,
-      img: 'https://incanto.eu/upload/webp/resize_cache/90f/9999_1430_1/pn7a3rvd6z7tv6hdu7la2cj7p6bmlm1d.webp',
+      img: '/../back/uploads/signers/uploads/signers/IMG_3761_2.jpg',
       name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
       price: '3999',
       is_active: false,
@@ -41,8 +41,9 @@ const Main = () => {
   useEffect(() => {
     if (fetching) {
       axios
-        .get(process.env.REACT_APP_HOST + `/carts`)
+        .post(process.env.REACT_APP_HOST + `/api/article/get`)
         .then((response) => {
+          console.log(response.data);
           setCarts([...response.data]);
         })
         .finally(() => setFetching(false));
@@ -55,7 +56,7 @@ const Main = () => {
     if (count === 3) {
       return (
         <div className={styles.items}>
-          <Link to={'/catalog/' + carts[0].id} className={styles.item}>
+          <Link to={'/catalog/' + carts[0].id_art} className={styles.item}>
             <CartForCatalog
               id_art={carts[0]?.id_art}
               img={carts[0]?.img}
@@ -65,7 +66,7 @@ const Main = () => {
               description={carts[0]?.description}
             />
           </Link>
-          <Link to={'/catalog/' + carts[1]?.id} className={styles.item}>
+          <Link to={'/catalog/' + carts[1]?.id_art} className={styles.item}>
             <CartForCatalog
               id_art={carts[1]?.id_art}
               img={carts[1]?.img}
@@ -75,7 +76,7 @@ const Main = () => {
               description={carts[1]?.description}
             />
           </Link>
-          <Link to={'/catalog/' + carts[2]?.id} className={styles.item}>
+          <Link to={'/catalog/' + carts[2]?.id_art} className={styles.item}>
             <CartForCatalog
               id_art={carts[2]?.id_art}
               img={carts[2]?.img}
@@ -90,7 +91,7 @@ const Main = () => {
     } else if (count == 2) {
       return (
         <div className={styles.items}>
-          <Link to={'/catalog/' + carts[0]?.id} className={styles.item}>
+          <Link to={'/catalog/' + carts[0]?.id_art} className={styles.item}>
             <CartForCatalog
               id_art={carts[0]?.id_art}
               img={carts[0]?.img}
@@ -100,7 +101,7 @@ const Main = () => {
               description={carts[0]?.description}
             />
           </Link>
-          <Link to={'/catalog/' + carts[1]?.id} className={styles.item}>
+          <Link to={'/catalog/' + carts[1]?.id_art} className={styles.item}>
             <CartForCatalog
               id_art={carts[1]?.id_art}
               img={carts[1]?.img}
@@ -115,7 +116,7 @@ const Main = () => {
     } else {
       return (
         <div className={styles.items}>
-          <Link to={'/catalog/' + carts[0]?.id} className={styles.item}>
+          <Link to={'/catalog/' + carts[0]?.id_art} className={styles.item}>
             <CartForCatalog
               id_art={carts[0]?.id_art}
               img={carts[0]?.img}

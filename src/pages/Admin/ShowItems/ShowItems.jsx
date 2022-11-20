@@ -5,6 +5,7 @@ import axios from 'axios'
 import CartForCatalog from '../../../components/CartForCatalog/CartForCatalog';
 import { Link } from 'react-router-dom';
 import {EditOutlined, CloseOutlined} from '@ant-design/icons';
+import HeaderAdmin from '../Components/HeaderAdmin/HeaderAdmin';
 
 function ShowItems() {
   const [carts, setCarts] = useState([]);
@@ -22,6 +23,7 @@ function ShowItems() {
 
   return (
     <div>
+      <HeaderAdmin/>
       <div className="catalog">
         <div className="catalog--body show--body">
           {carts.length > 0 ? (carts.map(cart => 
@@ -32,7 +34,7 @@ function ShowItems() {
                 </div>
                 <CartForCatalog key={cart.id} name={cart.name} img={cart.img[0]} price={cart.price}/>
               </div>
-            )): <div>Пока что нет товаров. Создайте их, нажав кнопку "создать"</div>}
+            )): <div>Пока что нет товаров. Создайте их, нажав кнопку "Создать"</div>}
         </div>
       </div>
     </div>

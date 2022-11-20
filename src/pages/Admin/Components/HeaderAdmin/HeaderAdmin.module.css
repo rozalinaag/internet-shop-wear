@@ -1,0 +1,24 @@
+.body{
+  height: 130px;
+}
+
+.header{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  height: 70px;
+  align-items: center;
+  background-color: rgb(197, 217, 227);
+  font-size: 20px;
+  color:rgb(68, 41, 41);
+  font-weight: 300;
+}
+.title{
+
+}
+.tools{
+  display: flex;
+  gap: 20px;
+  cursor: pointer;
+}
+
