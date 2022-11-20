@@ -61,8 +61,8 @@ const Catalog = () => {
       <div className="catalog">
         <div className="catalog--body">
           {carts.length > 0 ? (carts.map(cart => 
-              <Link to = {`/catalog/${cart.id}`} className="catalog--item" key={cart.id}>
-                <CartForCatalog key={cart.id} name={cart.name} img={cart.img[0]} price={cart.price}/>
+              <Link to = {`/catalog/${cart.id_art}`} className="catalog--item" key={cart.id_art}>
+                <CartForCatalog key={cart.id_art} name={cart.name} img={cart.img} price={cart.price} is_active={cart.is_active}/>
               </Link>
             )): <div>Пока что нет доступных товаров :(</div>}
         </div>

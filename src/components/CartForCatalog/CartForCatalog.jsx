@@ -1,6 +1,6 @@
 import styles from './CartForCatalog.module.css';
 
-const CartForCatalog = ({ id, img, name, price }) => {
+const CartForCatalog = ({ id, img, name, price, is_active }) => {
 
   return (
     <div className={styles.Cart}>
@@ -12,7 +12,7 @@ const CartForCatalog = ({ id, img, name, price }) => {
       </div>
       <div className={styles.CartBody}>
           <div className={styles.name}> {name} </div>
-          <div className={styles.price}>{price} ₽</div>
+          <div className={styles.price}>{is_active ? price + ` ₽` : 'Нет товара'}</div>
       </div>
     </div>
   );

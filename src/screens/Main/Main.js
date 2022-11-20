@@ -9,31 +9,31 @@ import axios from 'axios';
 const Main = () => {
   const [carts, setCarts] = useState([
     {
-      id: 1,
-      img: [
-        'https://i.pinimg.com/564x/f2/2b/bf/f22bbff16533b3693b5b0955f605d3c3.jpg',
-      ],
-      name: 'Товар скоро поступит',
-      price: '599',
-      description: 'Товар скоро поступит',
+      id_art: 1,
+      img: 'https://incanto.eu/upload/webp/resize_cache/90f/9999_1430_1/pn7a3rvd6z7tv6hdu7la2cj7p6bmlm1d.webp',
+      name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
+      price: '3999',
+      is_active: false,
+      description:
+        'Бюстгальтер с мягкими чашками на стане. Чашки с вытачками формируют естественную линию декольте и обеспечивают деликатную поддержку груди. Состав: основной материал: 89% нейлон, 11% эластан; отделочный материал: 58% полиэстер, 36% нейлон, 6% люрекс Материал: сетка, вышивка',
     },
     {
-      id: 2,
-      img: [
-        'https://i.pinimg.com/564x/f2/2b/bf/f22bbff16533b3693b5b0955f605d3c3.jpg',
-      ],
-      name: 'Товар скоро поступит',
-      price: '599',
-      description: 'Товар скоро поступит',
+      id_art: 2,
+      img: 'https://incanto.eu/upload/webp/resize_cache/90f/9999_1430_1/pn7a3rvd6z7tv6hdu7la2cj7p6bmlm1d.webp',
+      name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
+      price: '3999',
+      is_active: false,
+      description:
+        'Бюстгальтер с мягкими чашками на стане. Чашки с вытачками формируют естественную линию декольте и обеспечивают деликатную поддержку груди. Состав: основной материал: 89% нейлон, 11% эластан; отделочный материал: 58% полиэстер, 36% нейлон, 6% люрекс Материал: сетка, вышивка',
     },
     {
-      id: 3,
-      img: [
-        'https://i.pinimg.com/564x/f2/2b/bf/f22bbff16533b3693b5b0955f605d3c3.jpg',
-      ],
-      name: 'Товар скоро поступит',
-      price: '599',
-      description: 'Товар скоро поступит',
+      id_art: 3,
+      img: 'https://incanto.eu/upload/webp/resize_cache/90f/9999_1430_1/pn7a3rvd6z7tv6hdu7la2cj7p6bmlm1d.webp',
+      name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
+      price: '3999',
+      is_active: false,
+      description:
+        'Бюстгальтер с мягкими чашками на стане. Чашки с вытачками формируют естественную линию декольте и обеспечивают деликатную поддержку груди. Состав: основной материал: 89% нейлон, 11% эластан; отделочный материал: 58% полиэстер, 36% нейлон, 6% люрекс Материал: сетка, вышивка',
     },
   ]);
   const [fetching, setFetching] = useState(true); // true if we want to load new data
@@ -57,27 +57,30 @@ const Main = () => {
         <div className={styles.items}>
           <Link to={'/catalog/' + carts[0].id} className={styles.item}>
             <CartForCatalog
-              id={carts[0]?.id}
-              img={carts[0]?.img[0]}
+              id_art={carts[0]?.id_art}
+              img={carts[0]?.img}
               name={carts[0]?.name}
+              is_active={carts[0]?.is_active}
               price={carts[0]?.price}
               description={carts[0]?.description}
             />
           </Link>
           <Link to={'/catalog/' + carts[1]?.id} className={styles.item}>
             <CartForCatalog
-              id={carts[1]?.id}
-              img={carts[1]?.img[0]}
+              id_art={carts[1]?.id_art}
+              img={carts[1]?.img}
               name={carts[1]?.name}
+              is_active={carts[1]?.is_active}
               price={carts[1]?.price}
               description={carts[1]?.description}
             />
           </Link>
           <Link to={'/catalog/' + carts[2]?.id} className={styles.item}>
             <CartForCatalog
-              id={carts[2]?.id}
-              img={carts[2]?.img[0]}
+              id_art={carts[2]?.id_art}
+              img={carts[2]?.img}
               name={carts[2]?.name}
+              is_active={carts[2]?.is_active}
               price={carts[2]?.price}
               description={carts[2]?.description}
             />
@@ -89,18 +92,20 @@ const Main = () => {
         <div className={styles.items}>
           <Link to={'/catalog/' + carts[0]?.id} className={styles.item}>
             <CartForCatalog
-              id={carts[0]?.id}
-              img={carts[0]?.img[0]}
+              id_art={carts[0]?.id_art}
+              img={carts[0]?.img}
               name={carts[0]?.name}
+              is_active={carts[0]?.is_active}
               price={carts[0]?.price}
               description={carts[0]?.description}
             />
           </Link>
           <Link to={'/catalog/' + carts[1]?.id} className={styles.item}>
             <CartForCatalog
-              id={carts[1]?.id}
-              img={carts[1]?.img[0]}
+              id_art={carts[1]?.id_art}
+              img={carts[1]?.img}
               name={carts[1]?.name}
+              is_active={carts[1]?.is_active}
               price={carts[1]?.price}
               description={carts[1]?.description}
             />
@@ -112,9 +117,10 @@ const Main = () => {
         <div className={styles.items}>
           <Link to={'/catalog/' + carts[0]?.id} className={styles.item}>
             <CartForCatalog
-              id={carts[0]?.id}
-              img={carts[0]?.img[0]}
+              id_art={carts[0]?.id_art}
+              img={carts[0]?.img}
               name={carts[0]?.name}
+              is_active={carts[0]?.is_active}
               price={carts[0]?.price}
               description={carts[0]?.description}
             />
@@ -172,13 +178,14 @@ const Main = () => {
               <div className={styles.catalog}>
                 <div className={styles.items}>
                   <Link
-                    to={'/catalog/' + carts[id_item]?.id}
+                    to={'/catalog/' + carts[id_item]?.id_art}
                     className={styles.item}
                   >
                     <CartForCatalog
-                      id={carts[id_item]?.id}
-                      img={carts[id_item]?.img[0]}
+                      id_art={carts[id_item]?.id_art}
+                      img={carts[id_item]?.img}
                       name={carts[id_item]?.name}
+                      is_active={carts[id_item]?.is_active}
                       price={carts[id_item]?.price}
                       description={carts[id_item]?.description}
                     />
