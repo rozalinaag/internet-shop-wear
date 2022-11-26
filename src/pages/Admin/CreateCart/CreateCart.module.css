@@ -27,8 +27,15 @@ input{
 textarea{
   width: 99%;
 }
+.files{
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .photos{
   display: flex;
+  padding-top: 20px;
   justify-content: space-between;
 }
 
@@ -37,17 +44,16 @@ textarea{
   flex-direction: column;
   gap: 10px;
 }
-
 .photo{
   height: 100px;
-  width: 100px;
+  width: 80px;
   background-color: rgb(151, 202, 233);
   display: flex;
   align-items: center;
   justify-content: center;
   border: 1px solid rgb(128, 128, 128);
   cursor: pointer;
-}
+} 
 
 .is_active{
   width: 200px;
@@ -66,10 +72,17 @@ textarea{
 .buttonAdd{
   width: 100%;
   display: flex;
+  cursor: pointer;
+  margin-bottom: 100px;
   right: 0;
   justify-content: center;
   height: 25px;
   border-radius: 3px;
   background-color: rgb(151, 202, 233);
   border-bottom: 1px solid rgb(111, 111, 111);
+}
+
+.file{
+  display: flex;
+  gap: 5px;
 }

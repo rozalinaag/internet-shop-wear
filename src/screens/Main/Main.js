@@ -10,7 +10,7 @@ const Main = () => {
   const [carts, setCarts] = useState([
     {
       id_art: 1,
-      img: 'https://incanto.eu/upload/webp/resize_cache/90f/9999_1430_1/pn7a3rvd6z7tv6hdu7la2cj7p6bmlm1d.webp',
+      img: '',
       name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
       price: '3999',
       is_active: false,
@@ -19,7 +19,7 @@ const Main = () => {
     },
     {
       id_art: 2,
-      img: 'https://incanto.eu/upload/webp/resize_cache/90f/9999_1430_1/pn7a3rvd6z7tv6hdu7la2cj7p6bmlm1d.webp',
+      img: '',
       name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
       price: '3999',
       is_active: false,
@@ -28,7 +28,7 @@ const Main = () => {
     },
     {
       id_art: 3,
-      img: '/../back/uploads/signers/uploads/signers/IMG_3761_2.jpg',
+      img: '',
       name: 'Трусы с мягкими чашками на стане CD122 Очень мягкие очень очень очень',
       price: '3999',
       is_active: false,

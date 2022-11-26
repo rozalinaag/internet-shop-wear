@@ -14,7 +14,7 @@ function ShowItems() {
   useEffect(() => {
     if (fetching) {
       axios
-        .post(
+        .get(
           process.env.REACT_APP_HOST + `/api/article/get?_limit=1000&_page=0`
         )
         .then((response) => {
@@ -43,6 +43,9 @@ function ShowItems() {
                 <CartForCatalog
                   key={cart.id}
                   name={cart.name}
+                  id_art={cart.id_art}
+                  is_active={cart.is_active}
+                  code={cart.code}
                   img={cart.img}
                   price={cart.price}
                 />
