@@ -1,7 +1,7 @@
 import styles from './Cart.module.css';
 import React, { useState, useEffect } from 'react';
 
-const Cart = ({id}) => {
+const Cart = ({ id }) => {
   const [data, setData] = useState({
     id: '',
     img: '',
@@ -13,32 +13,33 @@ const Cart = ({id}) => {
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-      if (load) {
-        fetch(process.env.REACT_APP_HOST + `/carts/${id}`)
-          .then((response) => response.json())
-          .then((data) => {
-            if (load === true) {
-                setData({
-                  id: data?.id,
-                  img: data?.img,
-                  name: data?.name,
-                  price: data?.price,
-                  description: data?.description,
-                });
-              setLoad(false);
-            }
-          }).catch((err) => {
+    if (load) {
+      fetch(process.env.REACT_APP_HOST + `/api/article/get_by_id/${id}`)
+        .then((response) => response.json())
+        .then((data) => {
+          if (load === true) {
             setData({
-              id: id,
-              img: [''],
-              name: 'Товар скоро поступит',
-              price: '0',
-              description: 'Товар скоро поступит',
+              id: data?.id,
+              img: data?.img,
+              name: data?.name,
+              price: data?.price,
+              description: data?.description,
             });
             setLoad(false);
-          })
-      }
-    }, [load]);
+          }
+        })
+        .catch((err) => {
+          setData({
+            id: id,
+            img: [''],
+            name: 'Товар скоро поступит',
+            price: '0',
+            description: 'Товар скоро поступит',
+          });
+          setLoad(false);
+        });
+    }
+  }, [load]);
 
   return (
     <div>

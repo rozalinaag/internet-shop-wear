@@ -41,9 +41,8 @@ const Main = () => {
   useEffect(() => {
     if (fetching) {
       axios
-        .post(process.env.REACT_APP_HOST + `/api/article/get`)
+        .get(process.env.REACT_APP_HOST + `/api/article/get?_limit=6&_page=0`)
         .then((response) => {
-          console.log(response.data);
           setCarts([...response.data]);
         })
         .finally(() => setFetching(false));

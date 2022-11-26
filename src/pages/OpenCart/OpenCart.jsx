@@ -8,10 +8,12 @@ import CarouselCompaund from '../../components/Carousel/Carousel';
 const OpenCart = () => {
   const [load, setLoad] = useState(true);
   const [dataCart, setDataCart] = useState({
-    id: '',
-    img: [''],
+    id_art: '',
+    imgs: { 0: '', 1: '' },
     name: '',
     price: '',
+    code: 1,
+    is_active: true,
     description: '',
   });
   const [mainPicture, setMainPicture] = useState('');
@@ -19,30 +21,34 @@ const OpenCart = () => {
 
   useEffect(() => {
     if (load) {
-      fetch(process.env.REACT_APP_HOST + `/carts/${id}`)
+      fetch(process.env.REACT_APP_HOST + `/api/article/get_by_id/${id}`)
         .then((response) => response.json())
         .then((data) => {
           if (load === true) {
             setDataCart({
-              id: data.id,
-              img: data.img,
-              name: data.name,
-              price: data.price,
-              description: data.description,
+              id_art: data[0].id_art,
+              imgs: data[0].imgs,
+              name: data[0].name,
+              price: data[0].price,
+              code: data[0].code,
+              is_active: data[0].is_active,
+              description: data[0].description,
             });
             setLoad(false);
-            setMainPicture(data.img[0]);
+            setMainPicture(data[0].imgs['0']);
           }
-        }).catch((err) => {
-        
+        })
+        .catch((err) => {
           setDataCart({
-            id: id,
-            img: [''],
+            id_art: id,
+            imgs: { 0: '', 1: '' },
             name: 'Товар скоро поступит',
             price: '0',
+            code: 1,
+            is_active: true,
             description: 'Товар скоро поступит',
           });
-        })
+        });
     }
   }, [load, dataCart, id]);
 
@@ -51,48 +57,46 @@ const OpenCart = () => {
   }, [load]);
 
   const changeMainPicture = (img) => {
-    console.log(img);
     setMainPicture(img);
   };
 
   return (
     <>
-        <div className={style.backLink}>
-          <Link to="/catalog">Каталог -{'>'}</Link>
-          <Link> Товар</Link>
-        </div>
+      <div className={style.backLink}>
+        <Link to="/catalog">Каталог -{'>'}</Link>
+        <Link> Товар</Link>
+      </div>
       <div className={style.slider}>
         <CarouselCompaund infinite transitionTime={0}>
-          {dataCart.img.map((img) => (
+          {Object.entries(dataCart.imgs).map(([key, value]) => (
             <CarouselCompaund.Page>
               <div className={style.itemSlider}>
-                <img height="380px" width="290px" src={img} alt="" />
+                <img height="380px" width="290px" src={value} alt="" />
               </div>
             </CarouselCompaund.Page>
           ))}
         </CarouselCompaund>
       </div>
       <div className={style.body}>
-
         <div className={style.bodyPictures}>
           <div className={style.fourPictures}>
-            {dataCart.img.map((img) => (
+            {Object.entries(dataCart.imgs).map(([key, value]) => (
               <Link
-                onClick={(e) => changeMainPicture(img)}
+                onClick={(e) => changeMainPicture(value)}
                 className={style.picture}
               >
                 <img
                   className={style.fourPictureLaptop}
                   height="175px"
                   width="140px"
-                  src={img}
+                  src={value}
                   alt=""
                 />
                 <img
                   className={style.fourPictureMobile}
                   height="100px"
                   width="80px"
-                  src={img}
+                  src={value}
                   alt=""
                 />
               </Link>
@@ -118,7 +122,10 @@ const OpenCart = () => {
             {dataCart.description}
           </div>
           <div className={style.item + ' ' + style.id}>
-            Код товара: {dataCart.id}
+            Код товара: {dataCart.code}
+          </div>
+          <div className={style.item + ' ' + style.id}>
+            {dataCart.is_active ? 'Товар в наличии' : 'Товара нет'}
           </div>
         </div>
       </div>

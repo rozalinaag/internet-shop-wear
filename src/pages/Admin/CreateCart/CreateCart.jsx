@@ -1,8 +1,21 @@
 import React from 'react';
 import HeaderAdmin from '../Components/HeaderAdmin/HeaderAdmin';
 import styles from './CreateCart.module.css';
+import { useState } from 'react';
 
 function CreateCart() {
+  const [photo, setPhoto] = useState('');
+
+  const onImageChange = (event) => {
+    if (event.target.files && event.target.files[0]) {
+      let img = event.target.files[0];
+      setPhoto({
+        image: URL.createObjectURL(img),
+      });
+    }
+  };
+  console.log(photo);
+
   return (
     <div>
       <HeaderAdmin />
@@ -15,8 +28,13 @@ function CreateCart() {
               Загрузите фотографии. Первая фотография является главной.
             </div>
             <div className={styles.photos}>
-              <div className={styles.photo + ' ' + styles.photo1}> + </div>
-              <div className={styles.photo + ' ' + styles.photo2}> + </div>
+              <div className={styles.photo + ' ' + styles.photo1}>
+                <input type="file" name="myImage" onChange={onImageChange} />
+              </div>
+              <div className={styles.photo + ' ' + styles.photo2}>
+                {' '}
+                <img width="100" height="100" src={photo.image} />{' '}
+              </div>
               <div className={styles.photo + ' ' + styles.photo3}> + </div>
               <div className={styles.photo + ' ' + styles.photo4}> + </div>
             </div>
