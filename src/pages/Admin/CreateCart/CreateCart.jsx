@@ -5,16 +5,17 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 function CreateCart() {
-    const [photo1, setPhoto1] = useState();
-    const [photo2, setPhoto2] = useState();
-    const [photo3, setPhoto3] = useState();
-    const [photo4, setPhoto4] = useState();
-    const [inputName, setInputName] = useState('');
-    const [inputPrice, setInputPrice] = useState('');
-    const [inputDescription, setInputDescription] = useState('');
-    const [is_active, setIs_active] = useState(true);
-    const [inputCode, setInputCode] = useState('');
-    const [fetching, setFetching] = useState(true);
+  const [photo1, setPhoto1] = useState();
+  const [photo2, setPhoto2] = useState();
+  const [photo3, setPhoto3] = useState();
+  const [photo4, setPhoto4] = useState();
+  const [inputName, setInputName] = useState('');
+  const [inputPrice, setInputPrice] = useState('');
+  const [inputDescription, setInputDescription] = useState('');
+  const [is_active, setIs_active] = useState(true);
+  const [inputCode, setInputCode] = useState('');
+  const [fetching, setFetching] = useState(true);
+  const [correctData, setCorrectData] = useState(true);
 
     const onImageChange1 = (event) => {
         let fileInput = event.target;
