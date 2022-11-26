@@ -16,29 +16,30 @@ function CreateCart() {
   const [is_active, setIs_active] = useState(true);
   const [inputCode, setInputCode] = useState('');
   const [fetching, setFetching] = useState(true);
+  const [correctData, setCorrectData] = useState(true);
 
   const onImageChange1 = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setPhoto1([URL.createObjectURL(img)]);
+      setPhoto1(URL.createObjectURL(img));
     }
   };
   const onImageChange2 = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setPhoto2([URL.createObjectURL(img)]);
+      setPhoto2(URL.createObjectURL(img));
     }
   };
   const onImageChange3 = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setPhoto3([URL.createObjectURL(img)]);
+      setPhoto3(URL.createObjectURL(img));
     }
   };
   const onImageChange4 = (event) => {
     if (event.target.files && event.target.files[0]) {
       let img = event.target.files[0];
-      setPhoto4([URL.createObjectURL(img)]);
+      setPhoto4(URL.createObjectURL(img));
     }
   };
   const handlerInputName = (event) => {
@@ -58,9 +59,12 @@ function CreateCart() {
     setIs_active(!is_active);
   };
 
+  useEffect(() => {
+    setPhotos([photo1, photo2, photo3, photo4]);
+  }, [photo1, photo2, photo3, photo4]);
+
   const handlerCreateCart = (event) => {
     event.preventDefault();
-    setPhotos([photo1]);
     let data = {
       files: photos,
       name: inputName,
@@ -68,15 +72,18 @@ function CreateCart() {
       description: inputDescription,
       is_active: is_active,
     };
-    if (fetching) {
-      console.log(data);
-      axios
-        .post(process.env.REACT_APP_HOST + `/api/article/create`, { data })
-        .then((response) => {
-          console.log(response);
-        })
-        .finally(() => setFetching(false));
-    }
+
+    console.log(data);
+
+    // if (fetching && correctData) {
+    //   setFetching(false);
+    //   axios
+    //     .post(process.env.REACT_APP_HOST + `/api/article/create`, { data })
+    //     .then((response) => {
+    //       console.log(response);
+    //     })
+    //     .finally(() => setFetching(true));
+    // }
   };
 
   return (
