@@ -33,6 +33,7 @@ function ShowItems() {
                 console.log(response);
               })
               .finally(() => {
+                setCarts([]);
                 setFetching(true);
                 navigate('/admin/showitems');
               });
