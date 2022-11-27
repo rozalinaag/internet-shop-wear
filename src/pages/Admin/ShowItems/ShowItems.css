@@ -7,17 +7,26 @@
   position: absolute;
   display: flex;
   right: 0;
-  height: 100px;
   font-size: 25px;
-  gap: 15px;
+  gap: 10px;
   font-weight: 700;
   z-index: 3;
   cursor: pointer;
+  margin-top: 5px;
+  /* outline: none; */
 }
 .change{
   color:rgb(99, 99, 99);
+  background-color: rgba(215, 215, 215, 0.673);
+  border-radius: 5px;
 }
 
 .delete{
   color: rgb(159, 39, 39);
+  background-color: rgba(215, 215, 215, 0.632);
+  border-radius: 5px;
+}
+
+.react-confirm-alert-button-group{
+  justify-content: center !important;
 }
