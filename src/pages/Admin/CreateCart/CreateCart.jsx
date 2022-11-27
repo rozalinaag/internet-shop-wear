@@ -3,8 +3,10 @@ import HeaderAdmin from '../Components/HeaderAdmin/HeaderAdmin';
 import styles from './CreateCart.module.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Button, Space, Upload, Form, Input, InputNumber, Switch} from 'antd';
+import {Button, Space, Upload, Form, Input, InputNumber, Switch, notification} from 'antd';
 import {UploadOutlined} from "@ant-design/icons";
+import {Navigate, useNavigate} from "react-router-dom";
+
 
 const {TextArea} = Input;
 
@@ -16,10 +18,19 @@ function CreateCart() {
         previewImage: "",
         fileList: []
     });
+    const [api, contextHolder] = notification.useNotification();
+    const openNotification = (title, description) => {
+        api.info({
+            message: title,
+            description: description,
+            placement: 'bottomRight'
+        });
+    };
+    const navigate = useNavigate();
+
 
     const handlerCreateCart = (data) => {
         let formData = new FormData();
-        console.log(data)
         for (let i = 0; i < state.fileList.length; ++i) {
             if (state.fileList[i].originFileObj instanceof File) {
                 formData.append('upload_file', state.fileList[i].originFileObj)
@@ -41,6 +52,13 @@ function CreateCart() {
         })
             .then((response) => {
                 console.log(response);
+                if (response.status === 200) {
+                    openNotification('Успешно', 'Запись успешно добавлена')
+                    navigate("/admin/showitems")
+                }
+            })
+            .catch((error) => {
+                openNotification('Ошибка', error.response.data.detail ? error.response.data.detail: error.message)
             })
             .finally(() => setFetching(false));
 
@@ -54,12 +72,10 @@ function CreateCart() {
     };
 
     const handleUpload = ({fileList}) => {
-        console.log('fileList', fileList);
         setState({fileList});
     };
 
     const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
     };
 
     const onChangeCheck = (e) => {
@@ -68,6 +84,7 @@ function CreateCart() {
 
     return (
         <div>
+            {contextHolder}
             <HeaderAdmin/>
             <div className={styles.body}>
                 <Form
@@ -147,7 +164,7 @@ function CreateCart() {
                         label="В наличии ?"
                         name="is_active"
                     >
-                        <Switch defaultChecked={true} onChange={onChangeCheck} />
+                        <Switch defaultChecked={true} onChange={onChangeCheck}/>
                     </Form.Item>
 
                     <Form.Item wrapperCol={{offset: 8, span: 8}}>
