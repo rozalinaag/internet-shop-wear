@@ -30,3 +30,9 @@
 .react-confirm-alert-button-group{
   justify-content: center !important;
 }
+
+@media (max-width: 400px){
+  .change--delete{
+    margin-right: 40px;
+  }
+}

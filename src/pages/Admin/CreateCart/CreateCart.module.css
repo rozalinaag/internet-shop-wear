@@ -16,3 +16,13 @@
   text-align: justify;
   gap: 20px;
 }
+
+.Button{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonItem{
+  width: 150px;
+}
