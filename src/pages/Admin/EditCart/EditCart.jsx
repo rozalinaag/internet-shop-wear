@@ -32,10 +32,9 @@ function EditCart() {
 
     const handlerCreateCart = (data) => {
         let formData = new FormData();
-        console.log(data);
-        // if (!state.fileList.length) {
-        //     formData.append('upload_file', null);
-        // }
+        if (!state.fileList.length) {
+            formData.append('upload_file', new File(["foo"], "foo.txt"));
+        }
         for (let i = 0; i < state.fileList.length; ++i) {
             if (state.fileList[i].originFileObj instanceof File) {
                 formData.append('upload_file', state.fileList[i].originFileObj);
