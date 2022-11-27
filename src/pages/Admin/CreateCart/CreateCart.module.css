@@ -17,15 +17,12 @@
   gap: 20px;
 }
 
-.buttonAdd{
+.Button{
   width: 100%;
   display: flex;
-  cursor: pointer;
-  margin-bottom: 100px;
-  right: 0;
   justify-content: center;
-  height: 25px;
-  border-radius: 3px;
-  background-color: rgb(151, 202, 233);
-  border-bottom: 1px solid rgb(111, 111, 111);
+}
+
+.buttonItem{
+  width: 150px;
 }
