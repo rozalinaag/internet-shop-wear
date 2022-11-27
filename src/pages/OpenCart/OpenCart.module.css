@@ -49,6 +49,7 @@
 }
 .name{
   text-align: center;
+  font-size: 22px;
 }
 .description{
   text-align: justify;

@@ -48,6 +48,8 @@
   font-size: 15px;
   line-height: 26px;
   letter-spacing: 2px;
+  color: rgb(181, 37, 37);
+  font-weight: 600;
 }
 .pictureForMobile{
   display: none;

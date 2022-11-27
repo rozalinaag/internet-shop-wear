@@ -77,6 +77,7 @@ const Catalog = () => {
                   name={cart.name}
                   img={cart.img}
                   price={cart.price}
+                  code={cart.code}
                   is_active={cart.is_active}
                 />
               </Link>

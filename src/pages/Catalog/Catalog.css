@@ -26,6 +26,11 @@
   display: flex;
   justify-content: center;
 }
+
+a{
+  color: black !important;
+}
+
 @media (max-width: 1400px){
   .catalog--body{
     grid-template-columns: repeat(3, 300px);
