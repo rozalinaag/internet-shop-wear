@@ -68,7 +68,7 @@ const OpenCart = () => {
       </div>
       <div className={style.slider}>
         <CarouselCompaund infinite transitionTime={0}>
-          {Object.entries(dataCart.imgs).map(([value]) => (
+          {Object.entries(dataCart.imgs).map(([key, value]) => (
             <CarouselCompaund.Page>
               <div className={style.itemSlider}>
                 <img height="380px" width="290px" src={value} alt="" />
