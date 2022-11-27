@@ -12,10 +12,14 @@
   width: 100%;
   text-align: center;
   padding-top: 30px;
+  
 }
 .bodyPictures{
   display: flex;
   gap: 20px;
+}
+.Link{
+  color: black;
 }
 
 .fourPictures{
@@ -52,7 +56,10 @@
   font-size: 22px;
 }
 .description{
-  text-align: justify;
+  text-align: center;
+  overflow-wrap: anywhere;
+  width: 700px;
+  
 }
 .pictureMainLaptop{
   display: none;
@@ -107,6 +114,9 @@
     display: none;
     position: absolute;
   }
+  .description{
+    width: 500px;
+  }
 }
 
 @media (max-width: 600px){
@@ -128,6 +138,9 @@
   .bodyItems{
     width: 350px;
   }
+  .description{
+    width: 400px;
+  }
 }
 @media (max-width: 500px){
   .bodyPictures{
@@ -138,5 +151,8 @@
   }
   .bodyItems{
     width: 250px;
+  }
+  .description{
+    width: 300px;
   }
 }
