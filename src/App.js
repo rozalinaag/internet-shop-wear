@@ -17,6 +17,7 @@ import {
   TeamOutlined,
   ShoppingOutlined,
 } from '@ant-design/icons';
+import 'antd/dist/antd.css'
 
 const App = () => {
   return (
