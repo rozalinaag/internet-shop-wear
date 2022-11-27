@@ -3,178 +3,159 @@ import HeaderAdmin from '../Components/HeaderAdmin/HeaderAdmin';
 import styles from './CreateCart.module.css';
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import {Button, Space, Upload, Form, Input, InputNumber, Switch} from 'antd';
+import {UploadOutlined} from "@ant-design/icons";
+
+const {TextArea} = Input;
 
 function CreateCart() {
-  const [photo1, setPhoto1] = useState();
-  const [photo2, setPhoto2] = useState();
-  const [photo3, setPhoto3] = useState();
-  const [photo4, setPhoto4] = useState();
-  const [inputName, setInputName] = useState('');
-  const [inputPrice, setInputPrice] = useState('');
-  const [inputDescription, setInputDescription] = useState('');
-  const [is_active, setIs_active] = useState(true);
-  const [inputCode, setInputCode] = useState('');
-  const [fetching, setFetching] = useState(true);
-  const [correctData, setCorrectData] = useState(true);
+    const [fetching, setFetching] = useState(false);
+    const [isActive, setIsActive] = useState(true);
+    const [state, setState] = useState({
+        previewVisible: false,
+        previewImage: "",
+        fileList: []
+    });
 
-    const onImageChange1 = (event) => {
-        let fileInput = event.target;
-        if (fileInput.files && fileInput.files[0]) {
-            console.log(fileInput.files[0])
-            setPhoto1(fileInput.files[0]);
-        }
-    };
-    const onImageChange2 = (event) => {
-        let fileInput = event.target;
-        if (fileInput.files && fileInput.files[0]) {
-            setPhoto2(fileInput.files[0]);
-        }
-    };
-    const onImageChange3 = (event) => {
-        let fileInput = event.target;
-        if (fileInput.files && fileInput.files[0]) {
-            setPhoto3(fileInput.files[0]);
-        }
-    };
-    const onImageChange4 = (event) => {
-        let fileInput = event.target;
-        if (fileInput.files && fileInput.files[0]) {
-            setPhoto4(fileInput.files[0]);
-        }
-    };
-    const handlerInputName = (event) => {
-        setInputName(event.target.value);
-    };
-    const handlerInputPrice = (event) => {
-        setInputPrice(event.target.value);
-    };
-    const handlerInputCode = (event) => {
-        setInputCode(event.target.value);
-    };
-    const handlerInputDescription = (event) => {
-        setInputDescription(event.target.value);
-    };
-
-    const handlertIs_active = () => {
-        setIs_active(!is_active);
-    };
-
-    const handlerCreateCart = (event) => {
-        event.preventDefault();
-        let photos = [photo1, photo2, photo3, photo4];
+    const handlerCreateCart = (data) => {
         let formData = new FormData();
-        for (let i=0; i < photos.length ; ++i) {
-            if (photos[i] instanceof File) {
-                formData.append('upload_file', photos[i])
+        console.log(data)
+        for (let i = 0; i < state.fileList.length; ++i) {
+            if (state.fileList[i].originFileObj instanceof File) {
+                formData.append('upload_file', state.fileList[i].originFileObj)
             }
         }
-        formData.append('name', inputName)
-        formData.append('price', inputPrice)
-        formData.append('code', inputCode)
-        formData.append('description', inputDescription)
-        formData.append('is_active', is_active)
+        formData.append('name', data['name'])
+        formData.append('price', data['price'])
+        formData.append('code', data['code'])
+        formData.append('description', data['description'])
+        formData.append('is_active', isActive)
 
-        if (fetching) {
-            axios({
-                method: 'POST',
-                url: process.env.REACT_APP_HOST + `/api/article/create`,
-                data: formData,
-                headers: {'Content-Type': 'multipart/form-data'}
+        setFetching(true)
+
+        axios({
+            method: 'POST',
+            url: process.env.REACT_APP_HOST + `/api/article/create`,
+            data: formData,
+            headers: {'Content-Type': 'multipart/form-data'}
+        })
+            .then((response) => {
+                console.log(response);
             })
-                .then((response) => {
-                    console.log(response);
-                })
-                .finally(() => setFetching(false));
-        }
+            .finally(() => setFetching(false));
+
+    };
+
+    const handlePreview = file => {
+        setState({
+            previewImage: file.thumbUrl,
+            previewVisible: true
+        });
+    };
+
+    const handleUpload = ({fileList}) => {
+        console.log('fileList', fileList);
+        setState({fileList});
+    };
+
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
+
+    const onChangeCheck = (e) => {
+        setIsActive(e)
     };
 
     return (
         <div>
             <HeaderAdmin/>
             <div className={styles.body}>
-                <form className={styles.create} onSubmit={handlerCreateCart}>
+                <Form
+                    name="basic"
+                    labelCol={{span: 8}}
+                    wrapperCol={{span: 16}}
+                    onFinish={handlerCreateCart}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                    style={{
+                        width: '80%',
+                    }}
+                >
                     <div className={styles.name}>Создание товара</div>
 
                     <div className={styles.photosBody}>
-                        <div className={styles.titlePhotos}>
-                            Загрузите фотографии. Первая фотография является главной.
-                        </div>
-                        <div className={styles.files}>
-                            <div className={styles.file}>
-                                <span>1. </span>
-                                <input type="file" name="myImage" onChange={onImageChange1}/>
-                            </div>
-                            <div className={styles.file}>
-                                <span>2.</span>
-                                <input type="file" name="myImage" onChange={onImageChange2}/>
-                            </div>
-                            <div className={styles.file}>
-                                <span>3. </span>
-                                <input type="file" name="myImage" onChange={onImageChange3}/>
-                            </div>
-                            <div className={styles.file}>
-                                <span>4. </span>
-                                <input type="file" name="myImage" onChange={onImageChange4}/>
-                            </div>
-                        </div>
-                        <div className={styles.photos}>
-                            <div className={styles.photo + ' ' + styles.photo1}>
-                                <img width="80" height="100" src={photo1} alt=""></img>
-                            </div>
-                            <div className={styles.photo + ' ' + styles.photo2}>
-                                {' '}
-                                <img width="80" height="100" src={photo2} alt=""></img>{' '}
-                            </div>
-                            <div className={styles.photo + ' ' + styles.photo3}>
-                                {' '}
-                                <img width="80" height="100" src={photo3} alt=""></img>
-                            </div>
-                            <div className={styles.photo + ' ' + styles.photo4}>
-                                {' '}
-                                <img width="80" height="100" src={photo4} alt=""></img>
-                            </div>
-                        </div>
-                    </div>
-                    <div className={styles.input + ' ' + styles.title}>
-                        <div className={styles.text}>Название:</div>
-                        <input
-                            placeholder="Женское белье"
-                            onChange={handlerInputName}
-                        ></input>
-                    </div>
-                    <div className={styles.input + ' ' + styles.price}>
-                        <div className={styles.text}>Цена в рублях:</div>
-                        <input placeholder="1499" onChange={handlerInputPrice}></input>
+                        <Form.Item
+                            label="Фотографии"
+                            name="photos"
+                            rules={[{required: true, message: 'Пожайлуста загрузите хотя бы одно фото!'}]}
+                        >
+                            <Space
+                                direction="vertical"
+                                style={{
+                                    width: '100%',
+                                }}
+                                size="large"
+                            >
+                                <Upload
+                                    listType="picture"
+                                    maxCount={4}
+                                    multiple
+                                    beforeUpload={() => false}
+                                    fileList={state.fileList}
+                                    onPreview={handlePreview}
+                                    onChange={handleUpload}
+                                    accept="image/png, image/jpeg"
+                                >
+                                    <Button icon={<UploadOutlined/>}>Загрузите (Max: 4)</Button>
+                                </Upload>
+                            </Space>
+                        </Form.Item>
                     </div>
 
-                    <div className={styles.input + ' ' + styles.price}>
-                        <div className={styles.text}>Код товара:</div>
-                        <input placeholder="12345" onChange={handlerInputCode}></input>
-                    </div>
+                    <Form.Item
+                        label="Наименование товара"
+                        name="name"
+                        rules={[{required: true, message: 'Пожайлуста заполните наименование товара!'}]}
+                    >
+                        <Input/>
+                    </Form.Item>
+                    <Form.Item
+                        label="Описание товара"
+                        name="description"
+                        rules={[{required: true, message: 'Пожайлуста заполните Описание товара!'}]}
+                    >
+                        <TextArea rows={2} maxLength={3}/>
+                    </Form.Item>
+                    <Form.Item
+                        label="Артикль товара"
+                        name="code"
+                        rules={[{required: true, message: 'Пожайлуста заполните артикль товара!'}]}
+                    >
+                        <Input/>
+                    </Form.Item>
+                    <Form.Item
+                        label="Цена товара"
+                        name="price"
+                        rules={[{required: true, message: 'Пожайлуста заполните цену товара!'}]}
+                    >
+                        <InputNumber
+                            type="text"
+                            min={0}
+                        />
+                    </Form.Item>
+                    <Form.Item
+                        label="В наличии ?"
+                        name="is_active"
+                    >
+                        <Switch defaultChecked={true} onChange={onChangeCheck} />
+                    </Form.Item>
 
-                    <div className={styles.input + ' ' + styles.description}>
-                        <div className={styles.text}>Описание:</div>
-                        <textarea
-                            placeholder="Женское белье розового цвета, ткань: хлопок, размеры: s, m, xs, XL"
-                            rows="5"
-                            id="TITLE"
-                            onChange={handlerInputDescription}
-                        ></textarea>
-                    </div>
-                    <div className={styles.input + ' ' + styles.is_active}>
-                        <div className={styles.text}>Товар в наличии?</div>
-                        <div className={styles.checkbox}>
-                            <input
-                                type="checkbox"
-                                name="happy"
-                                checked={is_active}
-                                onChange={handlertIs_active}
-                            ></input>
-                            <div>Да</div>
-                        </div>
-                    </div>
-                    <button className={styles.buttonAdd}>Добавить</button>
-                </form>
+                    <Form.Item wrapperCol={{offset: 8, span: 8}}>
+                        <Button type="primary" htmlType="submit" disabled={fetching}>
+                            Добавить товар
+                        </Button>
+                    </Form.Item>
+                </Form>
             </div>
         </div>
     );
