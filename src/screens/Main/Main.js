@@ -9,7 +9,7 @@ import axios from 'axios';
 const Main = () => {
   const [carts, setCarts] = useState([
     {
-      id_art: 1,
+      id_art: undefined,
       img: 'https://i.pinimg.com/564x/f2/2b/bf/f22bbff16533b3693b5b0955f605d3c3.jpg',
       name: 'Товар скоро поступит',
       price: '1999',
@@ -18,7 +18,7 @@ const Main = () => {
       description: 'Товар скоро поступит',
     },
     {
-      id_art: 2,
+      id_art: undefined,
       img: 'https://i.pinimg.com/564x/f2/2b/bf/f22bbff16533b3693b5b0955f605d3c3.jpg',
       name: 'Товар скоро поступит',
       price: '599',
@@ -27,7 +27,7 @@ const Main = () => {
       description: 'Товар скоро поступит',
     },
     {
-      id_art: 3,
+      id_art: undefined,
       img: 'https://i.pinimg.com/564x/f2/2b/bf/f22bbff16533b3693b5b0955f605d3c3.jpg',
       name: 'Товар скоро поступит',
       price: '2999',
@@ -80,11 +80,12 @@ const Main = () => {
     const rows = [];
     if (id_mass && carts) {
       for (let i = 0; i < mass_id.length; i++) {
+        let id_art_catalog = carts[id_mass[mass_id[i]]]?.id_art;
+        if (id_art_catalog == undefined) {
+          id_art_catalog = '';
+        }
         rows.push(
-          <Link
-            to={'/catalog/' + carts[id_mass[mass_id[i]]]?.id_art}
-            className={styles.item}
-          >
+          <Link to={'/catalog/' + id_art_catalog} className={styles.item}>
             <CartForCatalog
               id_art={carts[id_mass[mass_id[i]]]?.id_art}
               img={carts[id_mass[mass_id[i]]]?.img}
@@ -148,27 +149,24 @@ const Main = () => {
 
       <div className={styles.carousel + ' ' + styles.carouselForMobile}>
         <CarouselCompaund infinite transitionTime={300}>
-          {id_items.map((id_item) => (
-            <CarouselCompaund.Page>
-              <div className={styles.catalog}>
-                <div className={styles.items}>
-                  <Link
-                    to={'/catalog/' + carts[id_item]?.id_art}
-                    className={styles.item}
-                  >
-                    <CartForCatalog
-                      id_art={carts[id_item]?.id_art}
-                      img={carts[id_item]?.img}
-                      name={carts[id_item]?.name}
-                      is_active={carts[id_item]?.is_active}
-                      price={carts[id_item]?.price}
-                      description={carts[id_item]?.description}
-                    />
-                  </Link>
-                </div>
-              </div>
-            </CarouselCompaund.Page>
-          ))}
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>{showCartItems([0])}</div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>{showCartItems([1])}</div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>{showCartItems([2])}</div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>{showCartItems([3])}</div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>{showCartItems([4])}</div>
+          </CarouselCompaund.Page>
+          <CarouselCompaund.Page>
+            <div className={styles.catalog}>{showCartItems([5])}</div>
+          </CarouselCompaund.Page>
         </CarouselCompaund>
       </div>
     </div>
