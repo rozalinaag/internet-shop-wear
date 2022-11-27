@@ -1,0 +1,18 @@
+.body{
+    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+    width:100%;
+}
+.name{
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+.create{
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    gap: 20px;
+}

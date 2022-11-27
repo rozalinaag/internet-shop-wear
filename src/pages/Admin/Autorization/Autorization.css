@@ -29,21 +29,6 @@
   cursor: pointer;
 }
 
-.message-warning{
-  visibility:inherit;
-  color: red;
-  animation-name: fieldValidationError;
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-  animation-duration: 0.2s;
-}
-
-.message-correct{
-  visibility: hidden;
-  font-size: 15px;
-}
-
 .auth-button:disabled {
  opacity: 0.5;
 }

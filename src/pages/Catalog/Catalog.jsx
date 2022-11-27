@@ -1,11 +1,11 @@
 import Footer from '../../screens/Footer/Footer';
 import HeaderCarousel from '../../screens/HeaderCarousel/HeaderCarousel';
 import './Catalog.css';
-import axios from 'axios';
 import { useState, useEffect } from 'react';
 import CartForCatalog from '../../components/CartForCatalog/CartForCatalog';
 import { Link } from 'react-router-dom';
 import { BackTop } from 'antd';
+import axios from "../../axios";
 
 const Catalog = () => {
   const [carts, setCarts] = useState([]);

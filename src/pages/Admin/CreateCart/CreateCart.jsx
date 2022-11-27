@@ -2,10 +2,10 @@ import React from 'react';
 import HeaderAdmin from '../Components/HeaderAdmin/HeaderAdmin';
 import styles from './CreateCart.module.css';
 import {useState, useEffect} from 'react';
-import axios from 'axios';
 import {Button, Space, Upload, Form, Input, InputNumber, Switch, notification} from 'antd';
 import {UploadOutlined} from "@ant-design/icons";
 import {Navigate, useNavigate} from "react-router-dom";
+import axios from "../../../axios";
 
 
 const {TextArea} = Input;
@@ -98,7 +98,7 @@ function CreateCart() {
                         width: '80%',
                     }}
                 >
-                    <div className={styles.name}>Создание товара</div>
+                    <div className={styles.name}>Добавить товар</div>
 
                     <div className={styles.photosBody}>
                         <Form.Item

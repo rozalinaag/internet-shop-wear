@@ -1,7 +1,6 @@
 import React from 'react';
 import './ShowItems.css';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
 import CartForCatalog from '../../../components/CartForCatalog/CartForCatalog';
 import { Link } from 'react-router-dom';
 import { EditOutlined, CloseOutlined } from '@ant-design/icons';
@@ -9,6 +8,7 @@ import HeaderAdmin from '../Components/HeaderAdmin/HeaderAdmin';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { useNavigate } from 'react-router-dom';
+import axios from "../../../axios";
 
 function ShowItems() {
   const [carts, setCarts] = useState([]);
@@ -69,8 +69,8 @@ function ShowItems() {
             carts.map((cart) => (
               <div className="show--item">
                 <div className="change--delete">
-                  <Link to="/admin/edititem" className="change">
-                    <EditOutlined />
+                  <Link to={`/admin/edititem/${cart.id_art}/${cart.name}/${cart.price}/${cart.description}/${cart.code}/${cart.is_active}`} className="change">
+                    <EditOutlined/>
                   </Link>
                   <div className="delete">
                     <CloseOutlined onClick={() => handlerDelete(cart.id_art)} />

@@ -1,48 +1,74 @@
 import React from 'react'
 import './Autorization.css';
 import {useState} from 'react';
+import {Form, Input, Checkbox, Button, message as alert_message} from "antd";
+import Cookies from "js-cookie";
+import {useNavigate} from "react-router-dom";
+import axios from "../../../axios";
 
 
 function Autorization() {
-
-  const [login, setLogin] = useState("");
-  const [password, setPassword] = useState("");
-  const [correct, setCorrect] = useState(true);
-  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+    const navigate = useNavigate();
+    const [error, setError] = useState('');
 
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsButtonDisabled(true);
-    console.log(login + " " + password);
-    //function send to bd for chekin
-    let rightLoginPassword = true;
-    setTimeout(() => {
-      setIsButtonDisabled(false);
-    }, 1000)
+    const onFinish = async (values) => {
+        let formdata = new FormData();
+        formdata.append('username', values['username']);
+        formdata.append('password', values['password']);
+        await axios
+            .post(process.env.REACT_APP_HOST + "/api/login", formdata)
+            .then((response) => {
+                console.log(response);
+                Cookies.set("token", response.data.access_token);
+                navigate("/admin/showitems")
+            })
+            .catch((error) => {
+                alert_message.error(error.response.data.detail);
+            });
+    };
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
 
-    if (rightLoginPassword){
-      setCorrect(true);
-      window.location.assign('admin/showitems');
-    }
-    else{
-      setCorrect(false);
-    }
-  }
+    return (
+        <div>
+            <div className='auth-main'>
+                <h2>Авторизация</h2>
+                <Form
+                    name="basic"
+                    labelCol={{span: 6}}
+                    wrapperCol={{span: 16}}
+                    initialValues={{remember: true}}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                >
+                    <Form.Item
+                        label="Логин"
+                        name="username"
+                        rules={[{required: true, message: 'Пожайлуста введите ваш логин!'}]}
+                    >
+                        <Input/>
+                    </Form.Item>
 
-  return (
-    <div >
-      <div className='auth-main'>
-        <h2>Авторизация</h2>
-        <form className='auth' onSubmit={handleSubmit}>
-          <input name="login" onChange={(event) => {setLogin(event.target.value); setCorrect(true)}} className='auth-item auth-login' placeholder='login@mail.ru'></input>
-          <input name="password" onChange={(event) => {setPassword(event.target.value); setCorrect(true)} } className='auth-item auth-login' placeholder='password'></input>
-          <div className={!correct ? "message-warning": "message-correct"}>Неправильные данные</div>
-          <button className='auth-item auth-button' disabled={isButtonDisabled}>Войти</button>
-        </form>
-      </div>
-    </div>
-  )
+                    <Form.Item
+                        label="Пароль"
+                        name="password"
+                        rules={[{required: true, message: 'Пожайлуста введите ваш пароль!'}]}
+                    >
+                        <Input.Password/>
+                    </Form.Item>
+
+                    <Form.Item wrapperCol={{offset: 10, span: 16}}>
+                        <Button type="primary" htmlType="submit">
+                            Войти
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+        </div>
+    )
 }
 
 export default Autorization;
