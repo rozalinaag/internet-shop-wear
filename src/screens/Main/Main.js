@@ -4,7 +4,7 @@ import CartForCatalog from '../../components/CartForCatalog/CartForCatalog';
 import CarouselCompaund from '../../components/Carousel/Carousel';
 import { Link } from 'react-router-dom';
 import { useState, useEffect, Children } from 'react';
-import axios from 'axios';
+import axios from "../../axios";
 
 const Main = () => {
   const [carts, setCarts] = useState([
