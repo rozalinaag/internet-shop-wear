@@ -18,6 +18,7 @@ const OpenCart = () => {
   });
   const [mainPicture, setMainPicture] = useState('');
   const { id } = useParams();
+  const [text, setText] = useState('');
 
   useEffect(() => {
     if (load) {
@@ -35,6 +36,8 @@ const OpenCart = () => {
               description: data[0].description,
             });
             setLoad(false);
+            let txt = data[0].description;
+            setText(txt);
             setMainPicture(data[0].imgs['0']);
           }
         })
@@ -63,8 +66,10 @@ const OpenCart = () => {
   return (
     <>
       <div className={style.backLink}>
-        <Link to="/catalog">Каталог -{'>'}</Link>
-        <Link> Товар</Link>
+        <Link className={style.Link} to="/catalog">
+          Каталог -{'>'}
+        </Link>
+        <Link className={style.Link}> Товар</Link>
       </div>
       <div className={style.slider}>
         <CarouselCompaund infinite transitionTime={0}>
@@ -118,9 +123,7 @@ const OpenCart = () => {
           <div className={style.item + ' ' + style.price}>
             {dataCart.price} ₽
           </div>
-          <div className={style.item + ' ' + style.description}>
-            {dataCart.description}
-          </div>
+          <div className={style.item + ' ' + style.description}>{text}</div>
           <div className={style.item + ' ' + style.id}>
             Код товара: {dataCart.code}
           </div>
