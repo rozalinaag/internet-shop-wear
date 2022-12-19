@@ -37,7 +37,7 @@ const Catalog = () => {
     });
 
     const getTextMessage = (id_art) => {
-        return `${process.env.WHATSAPP_MESSAGE} ${process.env.REACT_APP_HOST}/catalog/${id_art}`
+        return `${process.env.REACT_APP_WHATSAPP_MESSAGE} ${process.env.REACT_APP_URL}/catalog/${id_art}`
     }
 
     const scrollHandler = (e) => {
@@ -86,7 +86,7 @@ const Catalog = () => {
                                         is_active={cart.is_active}
                                     />
                                 </Link>
-                                <a href={`whatsapp://send?text=${getTextMessage(cart.id_art)}&phone=${process.env.WHATSAPP_NUMBER}&abid=${process.env.WHATSAPP_NUMBER}`}
+                                <a href={`whatsapp://send?text=${getTextMessage(cart.id_art)}&phone=${process.env.REACT_APP_WHATSAPP_NUMBER}&abid=${process.env.REACT_APP_WHATSAPP_NUMBER}`}
                                    className="button-whatsapp">Связаться в WhatsApp</a>
                             </div>
                         ))
